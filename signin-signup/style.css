@@ -1,3 +1,105 @@
 body {
     margin: 0;
 }
+
+.allContents{
+ height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+background-image: url(./images/WhatsApp\ Image\ 2024-11-26\ at\ 22.03.27.jpeg);
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+font-family: "Kaushan Script", cursive;
+    
+}
+
+.Welcome{
+    color: #FFB703;
+}
+
+.btn1{
+    width: 240px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: #023047;
+    border: none;
+    color: #FFB703;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+}
+
+.option{
+    color: #FFB703;
+    font-weight: bold;
+}
+
+.btn2{
+    width: 240px;
+    height: 32px;
+    border-radius: 6px;
+    background-color: white;
+    border: none;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+}
+
+/* Signup style begins here */
+
+.signUp{
+    height: 100vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-image: url(./images/dogs.jpeg);
+   background-size: cover;
+   background-position: center;
+   background-attachment: fixed;
+   font-family: "Kaushan Script", cursive;
+       
+   }
+
+   .signUp_form{
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+   }
+   
+   .signUp_form input{
+    border: none;               
+    border-bottom: 2px solid #FFB703;               
+    font-size: 16px;         
+    outline: none;             
+    width: 300px;  
+    height: 50px; 
+    background-color: transparent;  
+    color: white;
+   }
+
+    .signUp_form input::placeholder{
+        color: #9fd0e9;
+    }
+   .reset{
+  margin-top: 0%;
+  color: #FFB703;
+   }
+
+   .btn_signup{
+    text-decoration: none;
+    width: 200px;
+    background-color: #023047;
+    text-align: center;
+    padding: 5px;
+    color: #FFB703;
+    font-weight: bold;
+    border-radius: 6px;
+   }
