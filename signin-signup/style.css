@@ -60,19 +60,38 @@ font-family: "Kaushan Script", cursive;
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   background-image: url(./images/dogs.jpeg);
-   background-size: cover;
-   background-position: center;
-   background-attachment: fixed;
+   position:relative;
    font-family: "Kaushan Script", cursive;
        
    }
 
+   .signUp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/dogs.jpeg); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(5px); 
+    z-index: -1; 
+  }
+
+
+
    .signUp_form{
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     /* gap: 20px; */
    
+=======
+   
+   }
+>>>>>>> 0e0866d1dc408c75d2963ad4e3dc35117edab967
    
    .signUp_form input{
     border: none;               
@@ -88,11 +107,8 @@ font-family: "Kaushan Script", cursive;
     .signUp_form input::placeholder{
         color: #9fd0e9;
     }
-   .reset{
-  margin-top: 0%;
-  color: #FFB703;
-   }
 
+  
    .btn_signup{
     text-decoration: none;
     width: 200px;
@@ -102,62 +118,80 @@ font-family: "Kaushan Script", cursive;
     color: #FFB703;
     font-weight: bold;
     border-radius: 6px;
+    margin-top: 20px;
    }
+   
+   .btn_pwd{
+    margin-top: 20px;
 
+<<<<<<< HEAD
    /* Welcome page design */
 
+=======
+   }
+>>>>>>> 0e0866d1dc408c75d2963ad4e3dc35117edab967
 
-   body {
-    font-family: 'Kaushan Script', cursive;
-    background: url('images/welcome.png') no-repeat center center;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  } 
+   /* style for Forgotten password */
 
-  .Welcome-Form {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 0;
-  }
-
-    .form-container {
-    position: relative;
-    z-index: 1;
-    text-align: center;
-  }
-
-  .form-heading {
-    font-size: 25px;
+   .pwd_heading{
+    font-size: 14px;
     font-weight: 400;
-    line-height: 37.5px;
-    color: #FB8500;
-    margin-bottom: 20px;
-  }
+   }
 
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
+   .forgot_pwd{
+  background-color: #9fd0e9;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  font-family: "Kaushan Script", cursive;
 
-  .form-input {
-    font-size: 16px;
-    color: #333;
-    padding: 8px;
-    border: none;
-    border-bottom: 2px solid #FB8500;
-    background: transparent;
-    outline: none;
-  }
+   }
 
+ 
+.forgot_pwd input{
+   border: 10px;
+  border-radius: 10px;
+  width: 300px;
+   padding: 10px;
+   }
+
+   .btn_pwd{
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    background:white;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+   }
+
+   .btn_pwd1{
+    width: 300px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #FB8500;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+   }
+
+.email_pwd{
+    margin-top: 5rem;
+    font-size: 13px;
+}
+   
+.pwd_p{
+    margin-top: 5rem;
+    font-size: 13px;
+}
+
+.pwd_pp{
+    font-size: 13px;
+}
+
+<<<<<<< HEAD
   .form-input::placeholder {
     color: #999;
   } 
@@ -253,3 +287,8 @@ body {
   border-radius: 5px;
   cursor: pointer;
 } 
+=======
+span{
+    color: #FB8500;
+}
+>>>>>>> 0e0866d1dc408c75d2963ad4e3dc35117edab967
