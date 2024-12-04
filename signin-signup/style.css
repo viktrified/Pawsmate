@@ -129,16 +129,16 @@ font-family: "Kaushan Script", cursive;
    }
 
    .forgot_pwd{
-  background-color: #9fd0e9;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  display: flex;
-  align-items: center;
-  font-family: "Kaushan Script", cursive;
-
-   }
-
+    background-color: #9fd0e9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    font-family: "Kaushan Script", cursive;
+  
+     }
+  
  
 .forgot_pwd input{
    border: 10px;
@@ -168,12 +168,12 @@ font-family: "Kaushan Script", cursive;
    }
 
 .email_pwd{
-    margin-top: 5rem;
+  
     font-size: 13px;
 }
    
 .pwd_p{
-    margin-top: 5rem;
+
     font-size: 13px;
 }
 
@@ -184,3 +184,177 @@ font-family: "Kaushan Script", cursive;
 span{
     color: #FB8500;
 }
+
+/* logo */
+/* Logo Styling */
+.logo {
+    position: absolute;
+    margin-top: 0;
+    top: 20px;
+    left: 20px;
+    font-family: "Kaushan Script", cursive;
+    font-size: 50px;
+    color: #FB8500;
+    z-index: 1;
+    text-shadow: 2px 2px 3px wheat;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MEDIA QUERY STARTS */
+
+@media (min-width: 1024px) {
+
+    .signUp h1{
+        font-size: 40px;
+        color: white;
+        font-weight: lighter;
+    }
+    
+  .signUp{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #023047;
+  }
+.btn_pwd{
+ 
+   background-color: transparent;
+   border: 1px solid #FB8500;
+   height: 30px;
+   color: white;
+   font-weight: bolder;
+   font-size: 20px;
+   
+
+}
+
+
+.signUp_form input{
+ width: 500px;
+ border-bottom: #FB8500 1px solid;
+
+}
+
+.btn_pwd:hover{
+    background-color: #243a47;
+}
+
+.signUp p{
+    color: #FB8500;
+
+}
+  }
+  
+
+  /* Forgotten password styling */
+  .forgot_pwd{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+   
+        content: '';
+        position: absolute;
+        width: 100%;
+        background-image: url(./images/pass.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: -1; 
+    
+    
+  }
+
+
+  .middle{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+    background-color: transparent;
+    width: 500px;
+    height: 500px;
+    box-shadow: 6px 0px 400px -70px rgb(73, 80, 107);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+   
