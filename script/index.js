@@ -1,37 +1,45 @@
-let emailInput = document.querySelector(".email_pwd");
-let sendBtn = document.querySelector(".btn_pwd1");
-
-const press = () => {
-  console.log(1);
-};
-
-sendBtn.addEventListener("click", press);
-
-function generateCode() {
-  return Math.floor(1000 + Math.random() * 9000); // Ensures a 4-digit code
-}
-
 document
   .getElementById("emailForm")
   .addEventListener("submit", async (event) => {
     event.preventDefault();
-    const email = document.getElementById("email").value;
-    const code = generateCode();
+
+    const email = document.getElementById("email").value; // Get user email input
+    const code = Math.floor(1000 + Math.random() * 9000); // Generate random 4-digit code
+
+    const url =
+      "https://app.mailgun.com/app/sending/domains/sandbox3ad6d0b9741c4681beeef372655dabd7.mailgun.org";
+    const apiKey = "76b277375c6c50222672b587558a3a64-f55d7446-c9d2935e"; // Replace with your Mailgun API key
+
+    const formData = new FormData();
+    formData.append(
+      "from",
+      "Your Name <you@sandbox3ad6d0b9741c4681beeef372655dabd7.mailgun.org>"
+    );
+    formData.append("to", email);
+    formData.append("subject", "Your Verification Code");
+    formData.append("text", `Your verification code is: ${code}`);
 
     try {
-      const response = await fetch("https://your-backend-url.com/send-email", {
+      const response = await fetch(url, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, code }),
+        headers: {
+          Authorization: "Basic " + btoa(`api:${apiKey}`), // Basic Auth for Mailgun
+        },
+        body: formData,
       });
 
+      const statusElement = document.getElementById("status");
+
       if (response.ok) {
-        alert("Code sent successfully!");
+        statusElement.textContent = "Code sent successfully!";
+        console.log("Verification Code:", code); // Log the code (optional for debugging)
       } else {
-        alert("Failed to send code.");
+        statusElement.textContent =
+          "Failed to send the code. Check your API or domain.";
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while sending the code.");
+      document.getElementById("status").textContent =
+        "An error occurred. Try again.";
     }
   });

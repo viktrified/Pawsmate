@@ -1,0 +1,93 @@
+[
+    "dogs": [
+        {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": ./image,
+            "name": "Max",
+            "sex": "male",
+        },
+                {
+            "id" : 2,
+            "breed": "Dachshund",
+            "age": 2,
+            "image": ./image,
+            "name": "Charlie",
+            "sex": "male",
+        },
+                {
+            "id" : 1,
+            "breed": "Rott",
+            "age": 3,
+            "image": ./image,
+            "name": "Riley",
+            "sex": "male",
+        },
+                {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": ./image,
+            "name": "Buddy",
+            "sex": "male",
+        },
+                {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 2,
+            "image": ./image,
+            "name": "Rocky",
+            "sex": "male",
+        },
+                {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": ./image,
+            "name": "Bella",
+            "sex": "female",
+        },
+                {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": ./image,
+            "name": "Luna",
+            "sex": "female",
+        },
+                {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": ./image,
+            "name": "Bailey",
+            "sex": "female",
+        },
+                {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": ./image,
+            "name": "Ruy",
+            "sex": "female",
+        },
+                {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": ./image,
+            "name": "Lucy",
+            "sex": "female",
+        },
+                {
+            "id" : 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": ./image,
+            "name": "Daisy",
+            "sex": "female",
+        }
+
+    ]
+]
