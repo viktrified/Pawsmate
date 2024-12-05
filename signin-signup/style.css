@@ -358,3 +358,129 @@ span{
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
    
+  .middle h6{
+    font-size: 20px;
+  }
+
+.email_pwd{
+    font-size: 16px;
+}
+
+.middle input, .btn_pwd1{
+  margin: 20px;
+  border-radius: 0px;
+  border: none;
+  padding: 15px;
+}
+
+.middle .btn_pwd1{
+    width: 100px;
+}
+
+ .btn_pwd1:hover{
+background-color: #ebc599;
+}
+
+.forgot_pwd .logo{
+    top: 0px;
+    left: 0px;
+}
+  /* Media query for welcome page */
+
+  .allContents{
+    background-image:url(./images/welcome.jpg);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+  }
+
+  .Welcome{
+    color: white;
+  font-size: 100px;
+
+  }
+
+  .Welcome:hover{
+    color: #023047;
+    transition: 2s ;
+    
+  }
+
+  .Welcome span{
+    font-family: "Kaushan Script", cursive;
+    text-shadow: 2px 2px 3px wheat;
+}
+
+.goal{
+  font-size: 30px;
+  font-weight: bolder;
+  color: #023047;
+}
+
+.btn1{
+    width: 400px;
+    padding: 10px;
+    border: 1px solid white;
+    background-color: transparent;
+  
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+
+
+.btn2{
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #243a47;
+    background-color: transparent;
+    color: #023047;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+nav{
+    position: absolute;
+    top: 0%;
+    margin-top: 0px;
+    width: 100%;
+    height: 25px;
+    color: #FB8500;
+    font-weight: bolder;
+    font-size: 15px ;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+   background-color: transparent;
+
+}
+
+
+.headerList{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    margin: 10px;
+   
+}
+
+a{
+    text-decoration: none;
+color: white;
+}
+
+a:hover{
+    color: #FB8500;
+}
+
+nav .logo {
+    position: absolute;
+    margin-top: 0;
+    top: 0px;
+    left: 5px;
+    font-family: "Kaushan Script", cursive;
+    font-size: 30px;
+    color: #FB8500;
+    z-index: 1;
+    text-shadow: 2px 2px 3px wheat;
+}
+
