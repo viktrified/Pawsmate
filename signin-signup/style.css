@@ -351,7 +351,7 @@ span{
    flex-direction: column;
    justify-content: center;
    align-items: center;
-    background-color: transparent;
+  
     width: 500px;
     height: 500px;
     box-shadow: 6px 0px 400px -70px rgb(73, 80, 107);
