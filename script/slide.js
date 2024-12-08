@@ -8,11 +8,10 @@ let actionHistory = [];
 const max_undo = 3;
 
 const urlParams = new URLSearchParams(window.location.search);
-const userGender = urlParams.get("gender"); // Owner's selected gender
+const userGender = urlParams.get("gender"); 
 const selectedBreeds = urlParams.get("breeds")?.split(",") || [];
 const selectedAgeRange = urlParams.get("ageRange");
 
-// Fetch dogs data
 fetch("../users.json")
   .then((response) => response.json())
   .then((data) => {
@@ -20,17 +19,12 @@ fetch("../users.json")
     const swiper = document.querySelector("#swiper");
     let currentIndex = 0;
 
-    // Filters
     const filterDogs = () => {
       return dogs.filter((dog) => {
-        // Gender filter
         const genderMatch = dog.sex !== userGender;
 
-        // Breed filter
         const breedMatch =
           selectedBreeds.length === 0 || selectedBreeds.includes(dog.breed);
-
-        // Age range filter
         let ageMatch = true;
         if (selectedAgeRange === "sixToTwo") {
           ageMatch = dog.age >= 1 && dog.age <= 2;
@@ -44,10 +38,9 @@ fetch("../users.json")
       });
     };
 
-    // Render dogs
     const renderDogs = () => {
       const filteredDogs = filterDogs();
-      swiper.innerHTML = ""; // Clear current cards
+      swiper.innerHTML = ""; 
 
       filteredDogs.forEach((dog, index) => {
         const card = document.createElement("div");
@@ -62,12 +55,11 @@ fetch("../users.json")
         `;
         swiper.appendChild(card);
       });
-      dogs = filteredDogs; // Update dogs list to match filtered results
+      dogs = filteredDogs; 
     };
 
     renderDogs();
 
-    // Slide functionality
     const slideOut = (direction) => {
       const cards = document.querySelectorAll(".card");
       const currentCard = cards[currentIndex];
@@ -89,7 +81,6 @@ fetch("../users.json")
       }, 500);
     };
 
-    // Handle like button
     const like = () => {
       const dog = dogs[currentIndex];
 
@@ -117,7 +108,6 @@ fetch("../users.json")
       likeBtn.addEventListener("click", like);
     }
 
-    // Handle dislike button
     const dislike = () => {
       addActionToHistory("dislike", currentIndex);
       slideOut("dislike");
@@ -127,7 +117,6 @@ fetch("../users.json")
       dislikeBtn.addEventListener("click", dislike);
     }
 
-    // Handle undo button
     const undo = () => {
       if (actionHistory.length > 0) {
         const lastAction = actionHistory.pop();
@@ -160,7 +149,6 @@ fetch("../users.json")
       undoBtn.addEventListener("click", undo);
     }
 
-    // Show the next card
     const next = () => {
       const cards = document.querySelectorAll(".card");
 
@@ -174,7 +162,6 @@ fetch("../users.json")
       }, 500);
     };
 
-    // Add action to history
     const addActionToHistory = (type, index) => {
       actionHistory.push({ type, index });
       if (actionHistory.length > max_undo) {
