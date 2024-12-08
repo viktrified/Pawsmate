@@ -252,7 +252,7 @@
             "id": 32,
             "breed": "Retriever",
             "age": 3,
-            "image": "./usersImage/retriever.jpeg",
+            "image": "usersImage/retriever.jpeg",
             "name": "Zara",
             "sex": "female"
         }
