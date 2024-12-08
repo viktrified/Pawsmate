@@ -7,10 +7,34 @@ let likesArray = [];
 let actionHistory = [];
 const max_undo = 3;
 
+let formTag = document.querySelector("#form");
+let ownerGender = null;
+
 const urlParams = new URLSearchParams(window.location.search);
-const userGender = urlParams.get("gender"); 
+// const userGender = urlParams.get("gender");
 const selectedBreeds = urlParams.get("breeds")?.split(",") || [];
 const selectedAgeRange = urlParams.get("ageRange");
+
+// const form = (event) => {
+//   event.preventDefault();
+
+//   let allChoice = Array.from(formTag.querySelectorAll("input")).reduce(
+//     (acc, input) => {
+//       if (input.type === "radio" && input.checked) {
+//         acc[input.name] = input.value;
+//       } else if (input.type !== "radio") {
+//         acc[input.name] = input.value;
+//       }
+//       return acc;
+//     },
+//     {}
+//   );
+//   ownerGender = allChoice.gender || null;
+//   console.log("Form submitted:", allChoice);
+// };
+// if (formTag) {
+//   formTag.addEventListener("submit", form);
+// }
 
 fetch("../users.json")
   .then((response) => response.json())
@@ -18,6 +42,15 @@ fetch("../users.json")
     let dogs = data.dogs;
     const swiper = document.querySelector("#swiper");
     let currentIndex = 0;
+
+    const filterGender = () => {
+      if (ownerGender === "male") {
+        return dogs.filter((dog) => dog.sex === "female");
+      } else if (ownerGender === "female") {
+        return dogs.filter((dog) => dog.sex === "male");
+      }
+      return dogs; // If no form is submitted, show all dogs
+    };
 
     const filterDogs = () => {
       return dogs.filter((dog) => {
@@ -40,7 +73,8 @@ fetch("../users.json")
 
     const renderDogs = () => {
       const filteredDogs = filterDogs();
-      swiper.innerHTML = ""; 
+      dogs = filterGender();
+      swiper.innerHTML = "";
 
       filteredDogs.forEach((dog, index) => {
         const card = document.createElement("div");
@@ -55,7 +89,7 @@ fetch("../users.json")
         `;
         swiper.appendChild(card);
       });
-      dogs = filteredDogs; 
+      dogs = filteredDogs;
     };
 
     renderDogs();

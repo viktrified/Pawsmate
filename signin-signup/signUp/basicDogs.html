@@ -55,20 +55,21 @@
       <input type="submit" id="nextBasic" value="next" />
     </form>
 
-    <script>
-      let basicBtn = document.querySelector("#form");
-      const basic = () => {
-        event.preventDefault();
+    <script src="../../script/slide.js">
 
-        const formData = new FormData(event.target);
-        const userGender = formData.get("gender");
+      // let basicBtn = document.querySelector("#form");
+      // const basic = () => {
+      //   event.preventDefault();
 
-        // Redirect to dashboard with gender as a query parameter
-        window.location.href = `./purpose.html?gender=${userGender}`;
-      };
-      if (basicBtn) {
-        basicBtn.addEventListener("submit", basic);
-      }
+      //   const formData = new FormData(event.target);
+      //   const userGender = formData.get("gender");
+
+      //   // Redirect to dashboard with gender as a query parameter
+      //   window.location.href = `./purpose.html?gender=${userGender}`;
+      // };
+      // if (basicBtn) {
+      //   basicBtn.addEventListener("submit", basic);
+      // }
     </script>
   </body>
 </html>
