@@ -1,0 +1,185 @@
+.main {
+  height: 100vh;
+}
+
+.basic_form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  margin-top: -5%;
+  background-color: #023047;
+}
+
+.basic_form input {
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 300px;
+  height: 30px;
+  text-align: justify;
+}
+
+.basic_form label {
+  align-self: flex-start;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-bottom: -5px;
+  font-size: 18px;
+  color: white;
+}
+
+select {
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+#submitButton {
+  text-align: center;
+  height: 40px;
+  margin: 20px;
+  border: 1px solid;
+  background-color: #fb8500;
+  font-size: large;
+  font-weight: bold;
+  color: white;
+  border: 1px solid white;
+}
+
+/* style for PURPOSE.HTML */
+
+/* Style for the container */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  padding: 10px;
+}
+
+.container h6 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.main h6 {
+  font-size: 18px;
+  margin-bottom: 0%;
+  margin-left: 10px;
+}
+
+.checker {
+  width: 100px;
+  margin: 8px 5px;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+  font-size: 15px;
+  margin-top: 0%;
+}
+
+/* Style for the list item */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Position the Font Awesome icon at the top-right corner */
+.fa-circle-check {
+  font-size: 15px;
+  color: #007bff;
+  position: absolute;
+  top: 3px;
+  right: 5px;
+}
+
+.three .one {
+  display: flex;
+}
+
+.one .checker {
+  font-size: 11px;
+  font-weight: bold;
+  padding: 2px;
+
+  height: 25px;
+}
+
+.contain {
+  margin-top: -30px;
+}
+
+.contain h6 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+
+/* agerange styling */
+.range {
+  display: flex;
+  flex-direction: row;
+}
+
+.range .checker {
+  font-size: small;
+  height: 15px;
+}
+
+.age_range h6 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.btnn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fb8500;
+  border-radius: 5px;
+  margin: 20px;
+  margin-top: 5rem;
+}
+
+.btnn_a{
+  text-decoration: none;
+min-height: 30px;
+display: flex;
+align-items: center;
+
+}
+
+.checker ul {
+  padding-right: 2px;
+}
+
+.checker i {
+  position: absolute;
+  top: -7px;
+  right: -5px;
+}
+
+
+/* inline */
+/* Container for the list */
+.container{
+  width: 200px;
+  height: 200px;
+  display: block ;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
