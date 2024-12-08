@@ -53,8 +53,8 @@
             "breed": "Dachshund",
             "age": 3,
             "image": "../usersImage/dachshund.jpeg",
-            "name": "Luna",
-            "sex": "female"
+            "name": "Luga",
+            "sex": "male"
         },
         {
             "id": 8,
@@ -86,7 +86,7 @@
             "age": 2,
             "image": "../usersImage/beagle.jpeg",
             "name": "Teddy",
-            "sex": "female"
+            "sex": "male"
         },
         {
             "id": 12,
