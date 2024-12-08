@@ -1,0 +1,260 @@
+{
+    "dogs": [
+        {
+            "id": 1,
+            "breed": "Chihuahua",
+            "age": 4,
+            "image": "../usersImage/chihuahua.jpeg",
+            "name": "Max",
+            "sex": "male"
+        },
+        {
+            "id": 2,
+            "breed": "Chihuahua",
+            "age": 2,
+            "image": "../usersImage/chihuahua.jpeg",
+            "name": "Zoe",
+            "sex": "female"
+        },
+        {
+            "id": 3,
+            "breed": "Pomeranian",
+            "age": 3,
+            "image": "../usersImage/pomeranian.jpeg",
+            "name": "Buddy",
+            "sex": "male"
+        },
+        {
+            "id": 4,
+            "breed": "Pomeranian",
+            "age": 4,
+            "image": "../usersImage/pomeranian.jpeg",
+            "name": "Riley",
+            "sex": "female"
+        },
+        {
+            "id": 5,
+            "breed": "Mastiff",
+            "age": 2,
+            "image": "../usersImage/mastiff.jpeg",
+            "name": "Rocky",
+            "sex": "male"
+        },
+        {
+            "id": 6,
+            "breed": "Mastiff",
+            "age": 2,
+            "image": "../usersImage/mastiff.jpeg",
+            "name": "Bella",
+            "sex": "female"
+        },
+        {
+            "id": 7,
+            "breed": "Dachshund",
+            "age": 3,
+            "image": "../usersImage/dachshund.jpeg",
+            "name": "Luga",
+            "sex": "male"
+        },
+        {
+            "id": 8,
+            "breed": "Dachshund",
+            "age": 7,
+            "image": "../usersImage/dachshund.jpeg",
+            "name": "Bailey",
+            "sex": "female"
+        },
+        {
+            "id": 9,
+            "breed": "French Bulldog",
+            "age": 5,
+            "image": "../usersImage/frenchBulldog.jpeg",
+            "name": "T-pain",
+            "sex": "male"
+        },
+        {
+            "id": 10,
+            "breed": "French Bulldog",
+            "age": 4,
+            "image": "../usersImage/frenchBulldog.jpeg",
+            "name": "Lucy",
+            "sex": "female"
+        },
+        {
+            "id": 11,
+            "breed": "Beagle",
+            "age": 2,
+            "image": "../usersImage/beagle.jpeg",
+            "name": "Teddy",
+            "sex": "male"
+        },
+        {
+            "id": 12,
+            "breed": "Beagle",
+            "age": 4,
+            "image": "../usersImage/beagle.jpeg",
+            "name": "Daisy",
+            "sex": "female"
+        },
+        {
+            "id": 13,
+            "breed": "Shepards",
+            "age": 2,
+            "image": "../usersImage/shepard.jpeg",
+            "name": "Bingo",
+            "sex": "male"
+        },
+        {
+            "id": 14,
+            "breed": "Shepards",
+            "age": 7,
+            "image": "../usersImage/shepard.jpeg",
+            "name": "Syndey",
+            "sex": "female"
+        },
+        {
+            "id": 15,
+            "breed": "Terrier",
+            "age": 5,
+            "image": "../usersImage/terrier.jpeg",
+            "name": "Outback",
+            "sex": "male"
+        },
+        {
+            "id": 16,
+            "breed": "Terrier",
+            "age": 4,
+            "image": "../usersImage/terrier.jpeg",
+            "name": "Aussie",
+            "sex": "female"
+        },
+        {
+            "id": 17,
+            "breed": "Lhasa",
+            "age": 4,
+            "image": "../usersImage/lhasa.jpeg",
+            "name": "Gunna",
+            "sex": "male"
+        },
+        {
+            "id": 18,
+            "breed": "Lhasa",
+            "age": 2,
+            "image": "../usersImage/lhasa.jpeg",
+            "name": "Coco",
+            "sex": "female"
+        },
+        {
+            "id": 19,
+            "breed": "Husky",
+            "age": 3,
+            "image": "../usersImage/husky.jpeg",
+            "name": "Gus",
+            "sex": "male"
+        },
+        {
+            "id": 20,
+            "breed": "Husky",
+            "age": 1,
+            "image": "../usersImage/husky.jpeg",
+            "name": "Mia",
+            "sex": "female"
+        },
+        {
+            "id": 21,
+            "breed": "Rottweiler",
+            "age": 5,
+            "image": "../usersImage/rottweiler.jpeg",
+            "name": "Duke",
+            "sex": "male"
+        },
+        {
+            "id": 22,
+            "breed": "Rottweiler",
+            "age": 4,
+            "image": "../usersImage/rottweiler.jpeg",
+            "name": "Queen",
+            "sex": "female"
+        },
+        {
+            "id": 23,
+            "breed": "Great Dane",
+            "age": 4,
+            "image": "../usersImage/greatDane.jpeg",
+            "name": "Prime",
+            "sex": "male"
+        },
+        {
+            "id": 24,
+            "breed": "Great Dane",
+            "age": 4,
+            "image": "../usersImage/greatDane.jpeg",
+            "name": "Mimi",
+            "sex": "female"
+        },
+        {
+            "id": 25,
+            "breed": "Cane Corso",
+            "age": 1,
+            "image": "../usersImage/caneCorso.jpeg",
+            "name": "Dexter",
+            "sex": "male"
+        },
+        {
+            "id": 26,
+            "breed": "Cane Corso",
+            "age": 2,
+            "image": "../usersImage/caneCorso.jpeg",
+            "name": "Nala",
+            "sex": "female"
+        },
+        {
+            "id": 27,
+            "breed": "Dobberman",
+            "age": 2,
+            "image": "../usersImage/dobberman.jpeg",
+            "name": "Paris",
+            "sex": "male"
+        },
+        {
+            "id": 28,
+            "breed": "Dobberman",
+            "age": 5,
+            "image": "../usersImage/dobberman.jpeg",
+            "name": "Stella",
+            "sex": "female"
+        },
+        {
+            "id": 29,
+            "breed": "Saint Bernard",
+            "age": 6,
+            "image": "../usersImage/saintBernard.jpeg",
+            "name": "Leo",
+            "sex": "male"
+        },
+        {
+            "id": 30,
+            "breed": "Saint Bernard",
+            "age": 6,
+            "image": "../usersImage/saintBernard.jpeg",
+            "name": "Star",
+            "sex": "female"
+        },
+        {
+            "id": 31,
+            "breed": "Retriever",
+            "age": 3,
+            "image": "../usersImage/retriever.jpeg",
+            "name": "Bubba",
+            "sex": "male"
+        },
+        {
+            "id": 32,
+            "breed": "Retriever",
+            "age": 3,
+            "image": "../usersImage/retriever.jpeg",
+            "name": "Zara",
+            "sex": "female"
+        }
+    ]
+}
