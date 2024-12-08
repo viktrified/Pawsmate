@@ -3,7 +3,8 @@ let likeBtn = document.querySelector("#like");
 let dislikeBtn = document.querySelector("#dislike");
 let undoBtn = document.querySelector("#undo");
 
-let likesArray = [];
+let likesArray = JSON.parse(localStorage.getItem("likesArray")) || []; // Load likesArray from localStorage
+
 let actionHistory = [];
 const max_undo = 3;
 
@@ -11,30 +12,9 @@ let formTag = document.querySelector("#form");
 let ownerGender = null;
 
 const urlParams = new URLSearchParams(window.location.search);
-// const userGender = urlParams.get("gender");
+const userGender = urlParams.get("gender");
 const selectedBreeds = urlParams.get("breeds")?.split(",") || [];
 const selectedAgeRange = urlParams.get("ageRange");
-
-// const form = (event) => {
-//   event.preventDefault();
-
-//   let allChoice = Array.from(formTag.querySelectorAll("input")).reduce(
-//     (acc, input) => {
-//       if (input.type === "radio" && input.checked) {
-//         acc[input.name] = input.value;
-//       } else if (input.type !== "radio") {
-//         acc[input.name] = input.value;
-//       }
-//       return acc;
-//     },
-//     {}
-//   );
-//   ownerGender = allChoice.gender || null;
-//   console.log("Form submitted:", allChoice);
-// };
-// if (formTag) {
-//   formTag.addEventListener("submit", form);
-// }
 
 fetch("../users.json")
   .then((response) => response.json())
@@ -42,15 +22,6 @@ fetch("../users.json")
     let dogs = data.dogs;
     const swiper = document.querySelector("#swiper");
     let currentIndex = 0;
-
-    const filterGender = () => {
-      if (ownerGender === "male") {
-        return dogs.filter((dog) => dog.sex === "female");
-      } else if (ownerGender === "female") {
-        return dogs.filter((dog) => dog.sex === "male");
-      }
-      return dogs; // If no form is submitted, show all dogs
-    };
 
     const filterDogs = () => {
       return dogs.filter((dog) => {
@@ -73,7 +44,7 @@ fetch("../users.json")
 
     const renderDogs = () => {
       const filteredDogs = filterDogs();
-      dogs = filterGender();
+      // dogs = filterGender();
       swiper.innerHTML = "";
 
       filteredDogs.forEach((dog, index) => {
@@ -114,18 +85,19 @@ fetch("../users.json")
         nextCard.style.zIndex = "2";
       }, 500);
     };
-
     const like = () => {
       const dog = dogs[currentIndex];
 
+      // Create a new div element to display the liked dog
       let likeDiv = document.createElement("div");
       likeDiv.className = "liked-dog";
       likeDiv.innerHTML = `
-        <img src="${dog.image}" alt="${dog.name}" style="width: 50px; height: 50px;">
-        <p>${dog.name}</p>
-      `;
+    <img src="${dog.image}" alt="${dog.name}" style="width: 50px; height: 50px;">
+    <p>${dog.name}</p>
+  `;
       newMatches.appendChild(likeDiv);
 
+      // Add the dog to the likesArray
       likesArray.push({
         id: dog.id,
         name: dog.name,
@@ -134,14 +106,45 @@ fetch("../users.json")
         sex: dog.sex,
       });
 
+      // Store the updated likesArray in localStorage
+      localStorage.setItem("likesArray", JSON.stringify(likesArray));
+
+      // Add the like action to the action history
       addActionToHistory("like", currentIndex);
+
       slideOut("like");
       next();
     };
+
+    // Event listener for the like button
     if (likeBtn) {
       likeBtn.addEventListener("click", like);
     }
 
+    // Function to update the display of liked dogs from likesArray
+    function updateLikesDisplay() {
+      newMatches.innerHTML = ""; // Clear the current display
+
+      likesArray.forEach((dog) => {
+        let likeDiv = document.createElement("div");
+        likeDiv.className = "liked-dog";
+        likeDiv.innerHTML = `
+      <img src="${dog.image}" alt="${dog.name}" style="width: 50px; height: 50px;">
+      <p>${dog.name}</p>
+    `;
+        newMatches.appendChild(likeDiv);
+      });
+    }
+
+    // Initial display of liked dogs from likesArray
+    updateLikesDisplay();
+
+    // Listen for changes to likesArray in localStorage
+    window.addEventListener("storage", () => {
+      // Reload the likesArray from localStorage when it changes
+      likesArray = JSON.parse(localStorage.getItem("likesArray")) || [];
+      updateLikesDisplay();
+    });
     const dislike = () => {
       addActionToHistory("dislike", currentIndex);
       slideOut("dislike");
@@ -157,6 +160,7 @@ fetch("../users.json")
         const cards = document.querySelectorAll(".card");
         const previousCard = cards[lastAction.index];
 
+        // Hide all cards except the previous one
         cards.forEach((card, idx) => {
           if (idx !== lastAction.index) {
             card.style.display = "none";
@@ -169,10 +173,14 @@ fetch("../users.json")
         previousCard.style.transform = "translateX(0)";
         previousCard.style.zIndex = "2";
 
+        // Undo like action: remove the last liked dog
         if (lastAction.type === "like") {
           const lastLiked = newMatches.lastChild;
           if (lastLiked) newMatches.removeChild(lastLiked);
-          likesArray.pop();
+          likesArray.pop(); // Remove last liked dog from array
+
+          // Update localStorage with the modified likesArray
+          localStorage.setItem("likesArray", JSON.stringify(likesArray));
         }
 
         currentIndex = lastAction.index;
@@ -199,7 +207,7 @@ fetch("../users.json")
     const addActionToHistory = (type, index) => {
       actionHistory.push({ type, index });
       if (actionHistory.length > max_undo) {
-        actionHistory.shift();
+        actionHistory.shift(); // Remove the oldest action if history exceeds max_undo
       }
     };
   })
