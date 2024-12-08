@@ -1,11 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Profile</title>
+  <link rel="stylesheet" href="profile.css">
 </head>
 <body>
-    
+  <div class="container">
+    <header class="header">
+      <button class="back-button">←</button>
+      <h1 class="title">Edit Profile</h1>
+    </header>
+
+    <form class="edit-form">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter name">
+
+      <label>Gender</label>
+      <div class="gender-options">
+        <label>
+          <input type="radio" name="gender" value="male"> Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female"> Female
+        </label>
+      </div>
+
+      <label for="breed">Breed</label>
+      <input type="text" id="breed" placeholder="Enter breed">
+
+      <label for="Age">Age</label>
+      <input type="text" id="Age" placeholder="What's your age?">
+
+      <label for="location">Location</label>
+      <input type="text" id="location" placeholder="Enter location">
+
+      <label for="activity">Bio</label>
+      <input type="text" id="Bio" placeholder="Say something about you ....">
+
+      
+      <button class="save-button" type="submit">Save Changes</button>
+    </form>
+  </div>
 </body>
 </html>

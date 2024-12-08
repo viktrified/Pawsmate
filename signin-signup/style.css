@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 /* body {
     margin: 0;
-=======
 body {
   margin: 0;
->>>>>>> main
 }
 
 .allContents {
@@ -55,7 +52,6 @@ body {
 }
 
 /* Signup style begins here */
-<<<<<<< HEAD
 /* 
 .signUp{
     height: 100vh;
@@ -82,7 +78,6 @@ body {
     filter: blur(5px); 
     z-index: -1; 
   }
-=======
 
 .signUp {
   height: 100vh;
@@ -93,7 +88,6 @@ body {
   position: relative;
   font-family: "Kaushan Script", cursive;
 }
->>>>>>> main
 
 .signUp::before {
   content: "";
@@ -115,17 +109,12 @@ body {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
    .signUp_form{
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
-    /* gap: 20px; */
+     gap: 20px;
    
-=======
    
-   }
->>>>>>> 0e0866d1dc408c75d2963ad4e3dc35117edab967
    
    .signUp_form input{
     border: none;               
@@ -137,7 +126,6 @@ body {
     background-color: transparent;  
     color: white;
    }
-=======
 .signUp_form input {
   border: none;
   border-bottom: 2px solid #ffb703;
@@ -148,13 +136,11 @@ body {
   background-color: transparent;
   color: white;
 }
->>>>>>> main
 
 .signUp_form input::placeholder {
   color: #9fd0e9;
 }
 
-<<<<<<< HEAD
   
    .btn_signup{
     text-decoration: none;
@@ -171,12 +157,8 @@ body {
    .btn_pwd{
     margin-top: 20px;
 
-<<<<<<< HEAD
    /* Welcome page design */
 
-=======
-   }
->>>>>>> 0e0866d1dc408c75d2963ad4e3dc35117edab967
 
    /* style for Forgotten password */
 
@@ -186,7 +168,6 @@ body {
    }
 
    .forgot_pwd{
-=======
 .btn_signup {
   text-decoration: none;
   width: 200px;
@@ -211,7 +192,6 @@ body {
 }
 
 .forgot_pwd {
->>>>>>> main
   background-color: #9fd0e9;
   height: 100vh;
   display: flex;
@@ -240,7 +220,6 @@ body {
 
 .btn_pwd1 {
   width: 300px;
-<<<<<<< HEAD
    padding: 10px;
    }
 
@@ -278,7 +257,6 @@ body {
     font-size: 13px;
 }
 
-<<<<<<< HEAD
   .form-input::placeholder {
     color: #999;
   } 
@@ -374,7 +352,6 @@ body {
   border-radius: 5px;
   cursor: pointer;
 } 
-=======
 span{
     color: #FB8500;
 }
@@ -404,7 +381,6 @@ span{
 span {
   color: #fb8500;
 }
-/* logo */
 /* Logo Styling */
 .logo {
   position: absolute;
@@ -603,4 +579,127 @@ nav .logo {
   color: #fb8500;
   z-index: 1;
   text-shadow: 2px 2px 3px wheat;
+}
+
+/* Edit-Profile styling starts here  */
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #00334e; /* Dark teal from your image */
+  color: #ffffff; /* White text for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items at the top */
+  height: 100vh;
+  padding: 20px;
+  overflow-y: auto; /* Allow body to scroll */
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  background-color: #004966; /* Slightly lighter teal */
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto; /* Allow scrolling if content exceeds */
+  max-height: 100vh; /* Ensures the container doesn't grow too large */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: #ffcc00; /* Yellow color */
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.title {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffcc00; /* Yellow color for the heading */
+}
+
+/* Form */
+.edit-form {
+  background-color: #00334e; /* Match form background to container color */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.edit-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.edit-form input[type="text"],
+.edit-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #d4d4d4; /* Light gray for input fields */
+  font-size: 14px;
+  color: #00334e; /* Dark text for readability */
+}
+
+.edit-form input::placeholder {
+  color: #666666;
+  font-style: italic;
+}
+
+.edit-form textarea {
+  resize: none;
+}
+
+/* Gender Options */
+.gender-options {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.gender-options label {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Add spacing between radio button and label */
+  color: #ffffff;
+}
+
+.gender-options input[type="radio"] {
+  accent-color: #ffcc00; /* Yellow for radio buttons */
+  width: 18px; /* Larger radio buttons */
+  height: 18px;
+  cursor: pointer;
+  border-radius: 50%; /* Round radio buttons */
+}
+
+/* Save Button */
+.save-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffcc00; /* Bright yellow */
+  color: #00334e; /* Dark text on yellow button */
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #e6b800; /* Slightly darker yellow for hover effect */
 }
