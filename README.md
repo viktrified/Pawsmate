@@ -35,7 +35,7 @@ Pawsmate includes the following features:
 <h3> Database </h3>  
 Currently, Pawsmate is built using static HTML, CSS, and JAVASCRIPT, to extend its functionality:
 
-You can view the pitch deck here:https://github.viktrified/pawsmate.git. If you want to contribute to the future of this project, follow the process below :
+You can view the user.json file on the root directory of :https://github.viktrified/pawsmate.git. If you want to contribute to the future of this project, follow the process below :
 
 <h3>Installation</h3>  
 <ol>
