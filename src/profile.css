@@ -477,4 +477,152 @@ body {
 }
 
 /* Chat styling starts here */
-git 
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0A2436; 
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: #112B3C;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  background-color: #0A2436;
+  padding: 10px;
+  border-bottom: 1px solid #FFC107;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.profile-name {
+  font-size: 18px;
+  color: #FFC107;
+}
+
+.chat-box {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+}
+
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #FFC107;
+  border-radius: 10px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.message.incoming {
+  justify-content: flex-start;
+}
+
+.message.outgoing {
+  justify-content: flex-end;
+}
+
+.message-text {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  background-color: #FFFFFF;
+  color: #112B3C;
+}
+
+.message.incoming .message-text {
+  background-color: #1A3A54;
+  color: #FFFFFF;
+}
+
+.message-picture {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.image-message {
+  max-width: 150px;
+  border-radius: 10px;
+  border: 2px solid #FFC107;
+}
+
+.chat-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #0A2436;
+  border-top: 1px solid #FFC107;
+}
+
+.camera-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #1A3A54;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+.message-input::placeholder {
+  color: #D3D3D3;
+}
+/* Media query for chat  */
+
+@media (max-width: 768px) {
+  .message-text {
+    font-size: 12px;
+  }
+
+  .profile-picture,
+  .message-picture {
+    width: 30px;
+    height: 30px;
+  }
+
+  .camera-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+
+
