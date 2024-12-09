@@ -150,7 +150,22 @@ body{
   height: 100vh;
 }
 
-.
+.DashHeader{
+margin-top: -5px;
+margin-left: -6px;
+width: auto;
+height: 40px;
+  background-color: white;
+}
+
+.logo {
+  position: absolute;
+  margin-top: 0;
+  font-family: "Kaushan Script", cursive;
+  font-size: 40px;
+  color: #fb8500;
+  text-shadow: 2px 2px 3px wheat;
+}
 
 
 #dogImage{
