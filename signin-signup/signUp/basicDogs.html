@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./signUp.css" />
     <title>Document</title>
   </head>
   <body>
-    <form id="form">
+    <form id="form" class="basic_form">
       <label for="name">Name</label>
       <input
         type="text"
@@ -34,16 +35,12 @@
         required
       />
 
-      <label for="gender">Gender</label>
-      <label for="male">
-        <input type="radio" id="male" name="gender" value="male" required />
-        Male
-      </label>
-      <label for="female">
-        <input type="radio" id="female" name="gender" value="female" required />
-        Female
-      </label>
-
+      <label for="gender">Select Gender:</label>
+      <select id="gender" name="gender">
+        <option class="option">--Select--</option>
+        <option id="male " value="male">Male</option>
+        <option id="female" value="female">Female</option>
+      </select>
       <label for="location">Location</label>
       <input
         type="text"
@@ -52,10 +49,8 @@
         placeholder="Enter location"
         required
       />
-      <input type="submit" id="nextBasic" value="next" />
+      <input type="submit" id="submitButton" value="Next" />
     </form>
-
-
 
     <script src="../../script/slide.js">
 

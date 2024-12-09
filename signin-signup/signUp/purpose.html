@@ -3,88 +3,190 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Font Awesome Icon Link</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./signUp.css" />
   </head>
   <body>
-    <a href="../../src/dashboard.html" id="skip">skip</a>
+    <div class="whole_div">
+      <div class="container">
+        <h6>What brought you to Pawsmate</h6>
+        <ul class="contain">
+          <li class="checker">
+            <i class="fa-solid fa-circle-check"></i>
+            Breading
+          </li>
+          <li class="checker">
+            <i class="fa-solid fa-circle-check"></i>
+            Play Mate
+          </li>
+        </ul>
+      </div>
 
-    <ul id="breedList">
-      <li class="specificBreed">Chihuahua</li>
-      <li class="specificBreed">Pomeranian</li>
-      <li class="specificBreed">Mastiff</li>
-      <li class="specificBreed">Dachshund</li>
-      <li class="specificBreed">French Bulldog</li>
-      <li class="specificBreed">Beagle</li>
-      <li class="specificBreed">Shepards</li>
-      <li class="specificBreed">Terrier</li>
-      <li class="specificBreed">Lhasa</li>
-      <li class="specificBreed">Husky</li>
-      <li class="specificBreed">Rottweiler</li>
-      <li class="specificBreed">Great Dane</li>
-      <li class="specificBreed">Cane Corso</li>
-      <li class="specificBreed">Dobberman</li>
-      <li class="specificBreed">Saint Bernard</li>
-      <li class="specificBreed">Retriever</li>
-    </ul>
+      <!-- dog breed -->
+      <div class="container">
+        <h6>What Breed are you looking for?</h6>
+        <ul class="contain" id="breedList">
+          <li class="checker">
+            <i class="fa-solid fa-circle-check"></i>
+            Breeding
+          </li>
 
-    <p>Age Range</p>
-    <ul id="ageRangeList">
-      <li id="sixToTwo">1 years - 2 years</li>
-      <li id="twoToSeven">2 years - 7 years</li>
-      <li id="sevenPlus">7+ years</li>
-    </ul>
+          <li class="checker">
+            <i class="fa-solid fa-circle-check"></i>
+            Play Mate
+          </li>
 
-    <button id="next">next</button>
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Terrier
+          </li>
 
-    <script>
-      const selectedBreeds = new Set();
-      let selectedAgeRange = null;
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Lhasa
+          </li>
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Beagle
+          </li>
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Cane Corso
+          </li>
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Husky
+          </li>
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Retriever
+          </li>
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Dobberman
+          </li>
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Rottweiler
+          </li>
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Shephards
+          </li>
 
-      // Event listener for breed selection
-      document.querySelectorAll(".specificBreed").forEach((breed) => {
-        breed.addEventListener("click", (event) => {
-          const breedName = event.target.textContent;
-          if (selectedBreeds.has(breedName)) {
-            selectedBreeds.delete(breedName);
-            event.target.style.textDecoration = "none";
-          } else {
-            selectedBreeds.add(breedName);
-            event.target.style.textDecoration = "line-through";
-          }
-        });
-      });
+          <li class="specificBreed">
+            <i class="fa-solid fa-circle-check"></i>
+            Chihuahua
+          </li>
+        </ul>
+      </div>
+    </div>
 
-      // Event listener for age range selection
-      document.querySelectorAll("#ageRangeList li").forEach((ageOption) => {
-        ageOption.addEventListener("click", (event) => {
-          document
-            .querySelectorAll("#ageRangeList li")
-            .forEach((item) => (item.style.textDecoration = "none"));
+    <!-- age range -->
+    <div class="container">
+      <h6>Age Rannnge</h6>
+      <ul class="contain" id="ageRangeList">
+        <li class="checker" id="sixToTwo">
+          <i class="fa-solid fa-circle-check"></i>
+          6M-3 Yrs
+        </li>
+        <li class="checker" id="twoToSeven">
+          <i class="fa-solid fa-circle-check"></i>
+          1 Yrs -4 Yrs
+        </li>
+        <li class="checker" id="sevenPlus">
+          <i class="fa-solid fa-circle-check"></i>
+          5+ years
+        </li>
+      </ul>
+    </div>
 
-          selectedAgeRange = event.target.id;
-          event.target.style.textDecoration = "line-through";
-        });
-      });
+    <!-- Genetics -->
+    <div class="container">
+      <h6>Genetics</h6>
+      <ul class="contain">
+        <li class="checker">
+          <i class="fa-solid fa-circle-check"></i>
+          Pure Breed
+        </li>
+        <li class="checker">
+          <i class="fa-solid fa-circle-check"></i>
+          Mixed Breed
+        </li>
+      </ul>
 
-      // Validate and handle 'next' button click
-      document.getElementById("next").addEventListener("click", () => {
-        if (selectedBreeds.size < 5) {
-          alert("Please select at least 5 breeds.");
-          return;
-        }
-        if (!selectedAgeRange) {
-          alert("Please select an age range.");
-          return;
-        }
+      <!--  -->
+      <div class="container">
+        <h6>Any Hereditary/health Condition</h6>
+        <ul class="contain">
+          <li class="checker">
+            <i class="fa-solid fa-circle-check"></i>
+            Yes
+          </li>
+          <li class="checker">
+            <i class="fa-solid fa-circle-check"></i>
+            No
+          </li>
+          <input type="text" placeholder="If Yes, state" />
+        </ul>
 
-        const queryParams = new URLSearchParams({
-          breeds: Array.from(selectedBreeds).join(","),
-          ageRange: selectedAgeRange,
-        });
+        <!--  -->
 
-        window.location.href = `../../src/dashboard.html?${queryParams.toString()}`;
-      });
-      
-    </script>
+        <button id="next">Next</button>
+      </div>
+    </div>
   </body>
+  <script>
+    const selectedBreeds = new Set();
+    let selectedAgeRange = null;
+
+    // Event listener for breed selection
+    document.querySelectorAll(".specificBreed").forEach((breed) => {
+      breed.addEventListener("click", (event) => {
+        const breedName = event.target.textContent;
+        if (selectedBreeds.has(breedName)) {
+          selectedBreeds.delete(breedName);
+          event.target.style.textDecoration = "none";
+        } else {
+          selectedBreeds.add(breedName);
+          event.target.style.textDecoration = "line-through";
+        }
+      });
+    });
+
+    // Event listener for age range selection
+    document.querySelectorAll("#ageRangeList li").forEach((ageOption) => {
+      ageOption.addEventListener("click", (event) => {
+        document
+          .querySelectorAll("#ageRangeList li")
+          .forEach((item) => (item.style.textDecoration = "none"));
+
+        selectedAgeRange = event.target.id;
+        event.target.style.textDecoration = "line-through";
+      });
+    });
+
+    // Validate and handle 'next' button click
+    document.getElementById("next").addEventListener("click", () => {
+      if (selectedBreeds.size < 5) {
+        alert("Please select at least 5 breeds.");
+        return;
+      }
+      if (!selectedAgeRange) {
+        alert("Please select an age range.");
+        return;
+      }
+
+      const queryParams = new URLSearchParams({
+        breeds: Array.from(selectedBreeds).join(","),
+        ageRange: selectedAgeRange,
+      });
+
+      window.location.href = `../../src/dashboard.html?${queryParams.toString()}`;
+    });
+  </script>
 </html>
