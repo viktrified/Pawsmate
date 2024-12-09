@@ -264,82 +264,26 @@ body {
 }
 
 
-
-@media (min-width: 768px) {
-    /* Tablet View */
-    .DashHeader {
-        height: 60px;
-    }
-
-    .logo {
-        font-size: 28px;
-    }
-
-    #dogName,
-    #dogAge,
-    #dogSex,
-    #breed,
-    #location {
-        font-size: 18px;
-    }
-
-    .lifestyle ul li {
-        font-size: 16px;
-    }
-
-    .images i {
-        font-size: 24px;
-    }
-
-    .footer {
-        height: 60px;
-    }
-
-    .footer i {
-        font-size: 24px;
-    }
-}
-
 @media (min-width: 1024px) {
-    /* Laptop View */
-    .DashHeader {
-        height: 70px;
-    }
+  body {
+    font-size: 16px;
+    
+  }
 
-    body{
-      background-position: center;
-    }
+  .DashHeader{
+    background: #023047;
+    display: flex;
+    justify-content: end;
+  }
 
-    .content{
-     margin-top: -10%;
-    }
+  .content{
+   background-image: none;
+  
+  }
 
+  .dog_profile{
+    dis
+  }
+ 
 
-    .logo {
-        font-size: 32px;
-    }
-
-    #dogName,
-    #dogAge,
-    #dogSex,
-    #breed,
-    #location {
-        font-size: 20px;
-    }
-
-    .lifestyle ul li {
-        font-size: 18px;
-    }
-
-    .images i {
-        font-size: 28px;
-    }
-
-    .footer {
-        height: 70px;
-    }
-
-    .footer i {
-        font-size: 28px;
-    }
 }
