@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Kaushan+Script&display=swap"
       rel="stylesheet"
@@ -12,33 +12,25 @@
   </head>
   <body>
     <div class="signUp">
+      <h2 class="logo">PawsMate!</h2>
       <h1 class="Welcome">Create an account.</h1>
-
-      <form
-        action="signin.html"
-        class="signUp_form"
-        onsubmit="return validatePasswords(event)"
-      >
-        <input type="text" name="name" placeholder="Name" required />
+      <form action="" class="signUp_form">
         <input type="email" name="email" placeholder="Email" required />
         <input
           type="password"
-          id="password"
           name="password"
           placeholder="Your password"
           required
         />
         <input
           type="password"
-          id="confirmPassword"
-          name="confirmPassword"
+          name="password"
           placeholder="Confirm password"
           required
         />
-        <button class="btn_signup" type="submit">Sign Up</button>
+        <a class="btn_signup" id="signUp" href="./basicDogs.html">Sign Up</a>
       </form>
     </div>
-
-    <script src="signUp.js"></script>
+    <script src="../../script/signup.js"></script>
   </body>
 </html>

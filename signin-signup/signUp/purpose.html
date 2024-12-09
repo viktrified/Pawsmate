@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="../../src/dashboard.html" id="skip">skip</a>
+
+    <ul id="breedList">
+      <li class="specificBreed">Chihuahua</li>
+      <li class="specificBreed">Pomeranian</li>
+      <li class="specificBreed">Mastiff</li>
+      <li class="specificBreed">Dachshund</li>
+      <li class="specificBreed">French Bulldog</li>
+      <li class="specificBreed">Beagle</li>
+      <li class="specificBreed">Shepards</li>
+      <li class="specificBreed">Terrier</li>
+      <li class="specificBreed">Lhasa</li>
+      <li class="specificBreed">Husky</li>
+      <li class="specificBreed">Rottweiler</li>
+      <li class="specificBreed">Great Dane</li>
+      <li class="specificBreed">Cane Corso</li>
+      <li class="specificBreed">Dobberman</li>
+      <li class="specificBreed">Saint Bernard</li>
+      <li class="specificBreed">Retriever</li>
+    </ul>
+
+    <p>Age Range</p>
+    <ul id="ageRangeList">
+      <li id="sixToTwo">1 years - 2 years</li>
+      <li id="twoToSeven">2 years - 7 years</li>
+      <li id="sevenPlus">7+ years</li>
+    </ul>
+
+    <button id="next">next</button>
+
+    <script>
+      const selectedBreeds = new Set();
+      let selectedAgeRange = null;
+
+      // Event listener for breed selection
+      document.querySelectorAll(".specificBreed").forEach((breed) => {
+        breed.addEventListener("click", (event) => {
+          const breedName = event.target.textContent;
+          if (selectedBreeds.has(breedName)) {
+            selectedBreeds.delete(breedName);
+            event.target.style.textDecoration = "none";
+          } else {
+            selectedBreeds.add(breedName);
+            event.target.style.textDecoration = "line-through";
+          }
+        });
+      });
+
+      // Event listener for age range selection
+      document.querySelectorAll("#ageRangeList li").forEach((ageOption) => {
+        ageOption.addEventListener("click", (event) => {
+          document
+            .querySelectorAll("#ageRangeList li")
+            .forEach((item) => (item.style.textDecoration = "none"));
+
+          selectedAgeRange = event.target.id;
+          event.target.style.textDecoration = "line-through";
+        });
+      });
+
+      // Validate and handle 'next' button click
+      document.getElementById("next").addEventListener("click", () => {
+        if (selectedBreeds.size < 5) {
+          alert("Please select at least 5 breeds.");
+          return;
+        }
+        if (!selectedAgeRange) {
+          alert("Please select an age range.");
+          return;
+        }
+
+        const queryParams = new URLSearchParams({
+          breeds: Array.from(selectedBreeds).join(","),
+          ageRange: selectedAgeRange,
+        });
+
+        window.location.href = `../../src/dashboard.html?${queryParams.toString()}`;
+      });
+      
+    </script>
+  </body>
+</html>

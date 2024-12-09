@@ -1,59 +1,58 @@
-body {
+/* body {
     margin: 0;
+body {
+  margin: 0;
 }
 
-.allContents{
- height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-background-image: url(./images/WhatsApp\ Image\ 2024-11-26\ at\ 22.03.27.jpeg);
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
-font-family: "Kaushan Script", cursive;
-    
+.allContents {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./images/WhatsApp\ Image\ 2024-11-26\ at\ 22.03.27.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: "Kaushan Script", cursive;
 }
 
-.Welcome{
-    color: #FFB703;
+.Welcome {
+  color: #ffb703;
 }
 
-.btn1{
-    width: 240px;
-    height: 32px;
-    border-radius: 6px;
-    background-color: #023047;
-    border: none;
-    color: #FFB703;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    
+.btn1 {
+  width: 240px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: #023047;
+  border: none;
+  color: #ffb703;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
-.option{
-    color: #FFB703;
-    font-weight: bold;
+.option {
+  color: #ffb703;
+  font-weight: bold;
 }
 
-.btn2{
-    width: 240px;
-    height: 32px;
-    border-radius: 6px;
-    background-color: white;
-    border: none;
-    text-decoration: none;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    
+.btn2 {
+  width: 240px;
+  height: 32px;
+  border-radius: 6px;
+  background-color: white;
+  border: none;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 /* Signup style begins here */
-
+/* 
 .signUp{
     height: 100vh;
    display: flex;
@@ -80,13 +79,42 @@ font-family: "Kaushan Script", cursive;
     z-index: -1; 
   }
 
+.signUp {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: "Kaushan Script", cursive;
+}
 
+.signUp::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./images/dogs.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(5px);
+  z-index: -1;
+}
+
+.signUp_form {
+  display: flex;
+  flex-direction: column;
+}
 
    .signUp_form{
     display: flex;
     flex-direction: column;
+     gap: 20px;
    
-   }
+   
    
    .signUp_form input{
     border: none;               
@@ -98,10 +126,20 @@ font-family: "Kaushan Script", cursive;
     background-color: transparent;  
     color: white;
    }
+.signUp_form input {
+  border: none;
+  border-bottom: 2px solid #ffb703;
+  font-size: 16px;
+  outline: none;
+  width: 300px;
+  height: 50px;
+  background-color: transparent;
+  color: white;
+}
 
-    .signUp_form input::placeholder{
-        color: #9fd0e9;
-    }
+.signUp_form input::placeholder {
+  color: #9fd0e9;
+}
 
   
    .btn_signup{
@@ -118,7 +156,9 @@ font-family: "Kaushan Script", cursive;
    
    .btn_pwd{
     margin-top: 20px;
-   }
+
+   /* Welcome page design */
+
 
    /* style for Forgotten password */
 
@@ -128,6 +168,30 @@ font-family: "Kaushan Script", cursive;
    }
 
    .forgot_pwd{
+.btn_signup {
+  text-decoration: none;
+  width: 200px;
+  background-color: #023047;
+  text-align: center;
+  padding: 5px;
+  color: #ffb703;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-top: 20px;
+}
+
+.btn_pwd {
+  margin-top: 20px;
+}
+
+/* style for Forgotten password */
+
+.pwd_heading {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.forgot_pwd {
   background-color: #9fd0e9;
   height: 100vh;
   display: flex;
@@ -135,13 +199,26 @@ font-family: "Kaushan Script", cursive;
   display: flex;
   align-items: center;
   font-family: "Kaushan Script", cursive;
+}
 
-   }
-
- 
-.forgot_pwd input{
-   border: 10px;
+.forgot_pwd input {
+  border: 10px;
   border-radius: 10px;
+  width: 300px;
+  padding: 10px;
+}
+
+.btn_pwd {
+  width: 300px;
+  border-radius: 10px;
+  padding: 10px;
+  background: white;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+
+.btn_pwd1 {
   width: 300px;
    padding: 10px;
    }
@@ -180,10 +257,106 @@ font-family: "Kaushan Script", cursive;
     font-size: 13px;
 }
 
+  .form-input::placeholder {
+    color: #999;
+  } 
+
+  /* Verification Styling Starts Here */
+  
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #89b4d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  gap: 10px;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.content {
+  background-color: #89b4d6;
+}
+
+.instruction {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.code-input {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px;
+  gap: 5px;
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 8px;
+}
+
+.resend {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.resend-link {
+  color: orange;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.send-button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: orange;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.signin-text {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.signin-button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #f5f5f5;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} 
 span{
     color: #FB8500;
 }
 
+<<<<<<< HEAD
 /* Homepage styling starts here  */
 
 
@@ -305,16 +478,264 @@ body {
   height: 100vh;
   padding: 20px;
   overflow-y: auto; 
+=======
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #fb8500;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.email_pwd {
+  margin-top: 5rem;
+  font-size: 13px;
+}
+
+.pwd_p {
+  margin-top: 5rem;
+  font-size: 13px;
+}
+
+.pwd_pp {
+  font-size: 13px;
+}
+
+span {
+  color: #fb8500;
+}
+/* Logo Styling */
+.logo {
+  position: absolute;
+  margin-top: 0;
+  top: 20px;
+  left: 20px;
+  font-family: "Kaushan Script", cursive;
+  font-size: 50px;
+  color: #fb8500;
+  z-index: 1;
+  text-shadow: 2px 2px 3px wheat;
+}
+
+/* MEDIA QUERY STARTS */
+
+@media (min-width: 1024px) {
+  .signUp h1 {
+    font-size: 40px;
+    color: white;
+    font-weight: lighter;
+  }
+
+  .signUp {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    background-color: #023047;
+  }
+  .btn_pwd {
+    background-color: transparent;
+    border: 1px solid #fb8500;
+    height: 30px;
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  .signUp_form input {
+    width: 500px;
+    border-bottom: #fb8500 1px solid;
+  }
+
+  .btn_pwd:hover {
+    background-color: #243a47;
+  }
+
+  .signUp p {
+    color: #fb8500;
+  }
+}
+
+/* Forgotten password styling */
+.forgot_pwd {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+
+  content: "";
+  position: absolute;
+  width: 100%;
+  background-image: url(./images/pass.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: -1;
+}
+
+.middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 500px;
+  height: 500px;
+  box-shadow: 6px 0px 400px -70px rgb(73, 80, 107);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.middle h6 {
+  font-size: 20px;
+}
+
+.email_pwd {
+  font-size: 16px;
+}
+
+.middle input,
+.btn_pwd1 {
+  margin: 20px;
+  border-radius: 0px;
+  border: none;
+  padding: 15px;
+}
+
+.middle .btn_pwd1 {
+  width: 100px;
+}
+
+.btn_pwd1:hover {
+  background-color: #ebc599;
+}
+
+.forgot_pwd .logo {
+  top: 0px;
+  left: 0px;
+}
+/* Media query for welcome page */
+
+.allContents {
+  background-image: url(./images/welcome.jpg);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.Welcome {
+  color: white;
+  font-size: 100px;
+}
+
+.Welcome:hover {
+  color: #023047;
+  transition: 2s;
+}
+
+.Welcome span {
+  font-family: "Kaushan Script", cursive;
+  text-shadow: 2px 2px 3px wheat;
+}
+
+.goal {
+  font-size: 30px;
+  font-weight: bolder;
+  color: #023047;
+}
+
+.btn1 {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid white;
+  background-color: transparent;
+
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.btn2 {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #243a47;
+  background-color: transparent;
+  color: #023047;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+nav {
+  position: absolute;
+  top: 0%;
+  margin-top: 0px;
+  width: 100%;
+  height: 25px;
+  color: #fb8500;
+  font-weight: bolder;
+  font-size: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: transparent;
+}
+
+.headerList {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  color: #fb8500;
+}
+
+nav .logo {
+  position: absolute;
+  margin-top: 0;
+  top: 0px;
+  left: 5px;
+  font-family: "Kaushan Script", cursive;
+  font-size: 30px;
+  color: #fb8500;
+  z-index: 1;
+  text-shadow: 2px 2px 3px wheat;
+}
+
+/* Edit-Profile styling starts here  */
+
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #00334e; /* Dark teal from your image */
+  color: #ffffff; /* White text for contrast */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align items at the top */
+  height: 100vh;
+  padding: 20px;
+  overflow-y: auto; /* Allow body to scroll */
+>>>>>>> Praises
 }
 
 .container {
   width: 100%;
   max-width: 400px;
+<<<<<<< HEAD
   background-color: #004966; 
   border-radius: 10px;
   padding: 20px;
   overflow-y: auto; 
   max-height: 100vh; 
+=======
+  background-color: #004966; /* Slightly lighter teal */
+  border-radius: 10px;
+  padding: 20px;
+  overflow-y: auto; /* Allow scrolling if content exceeds */
+  max-height: 100vh; /* Ensures the container doesn't grow too large */
+>>>>>>> Praises
 }
 
 .header {
@@ -327,7 +748,11 @@ body {
 .back-button {
   background: none;
   border: none;
+<<<<<<< HEAD
   color: #ffcc00;
+=======
+  color: #ffcc00; /* Yellow color */
+>>>>>>> Praises
   font-size: 24px;
   cursor: pointer;
 }
@@ -336,11 +761,20 @@ body {
   margin-left: 10px;
   font-size: 18px;
   font-weight: bold;
+<<<<<<< HEAD
   color: #ffcc00; 
 }
 
 .edit-form {
   background-color: #00334e; 
+=======
+  color: #ffcc00; /* Yellow color for the heading */
+}
+
+/* Form */
+.edit-form {
+  background-color: #00334e; /* Match form background to container color */
+>>>>>>> Praises
   padding: 20px;
   border-radius: 10px;
 }
@@ -360,9 +794,15 @@ body {
   margin-bottom: 15px;
   border: none;
   border-radius: 8px;
+<<<<<<< HEAD
   background-color: #d4d4d4;
   font-size: 14px;
   color: #00334e;
+=======
+  background-color: #d4d4d4; /* Light gray for input fields */
+  font-size: 14px;
+  color: #00334e; /* Dark text for readability */
+>>>>>>> Praises
 }
 
 .edit-form input::placeholder {
@@ -374,6 +814,10 @@ body {
   resize: none;
 }
 
+<<<<<<< HEAD
+=======
+/* Gender Options */
+>>>>>>> Praises
 .gender-options {
   display: flex;
   justify-content: space-between;
@@ -384,11 +828,16 @@ body {
   font-size: 14px;
   display: flex;
   align-items: center;
+<<<<<<< HEAD
   gap: 8px; 
+=======
+  gap: 8px; /* Add spacing between radio button and label */
+>>>>>>> Praises
   color: #ffffff;
 }
 
 .gender-options input[type="radio"] {
+<<<<<<< HEAD
   accent-color: #ffcc00; 
   width: 18px; 
   height: 18px;
@@ -401,6 +850,21 @@ body {
   padding: 12px;
   background-color: #ffcc00; 
   color: #00334e;
+=======
+  accent-color: #ffcc00; /* Yellow for radio buttons */
+  width: 18px; /* Larger radio buttons */
+  height: 18px;
+  cursor: pointer;
+  border-radius: 50%; /* Round radio buttons */
+}
+
+/* Save Button */
+.save-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ffcc00; /* Bright yellow */
+  color: #00334e; /* Dark text on yellow button */
+>>>>>>> Praises
   border: none;
   border-radius: 8px;
   font-size: 16px;
@@ -409,6 +873,7 @@ body {
 }
 
 .save-button:hover {
+<<<<<<< HEAD
   background-color: #e6b800;
 }
 
@@ -1032,4 +1497,7 @@ body {
   .user-name {
     font-size: 16px;
   }
+=======
+  background-color: #e6b800; /* Slightly darker yellow for hover effect */
+>>>>>>> Praises
 }
