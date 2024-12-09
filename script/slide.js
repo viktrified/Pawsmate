@@ -62,11 +62,29 @@ fetch("../users.json")
         card.style.display = index === 0 ? "block" : "none"; // Show only the first card initially
         card.style.zIndex = index === 0 ? "2" : "1"; // Ensure correct stacking order
         card.innerHTML = `
-          <img src="${dog.image}" alt="${dog.name}" style="width: 100%; height: auto;">
-          <h3>${dog.name}</h3>
-          <p>Breed: ${dog.breed}</p>
-          <p>Age: ${dog.age}</p>
-          <p>Sex: ${dog.sex}</p>
+  <div class="dog_profile" style="  background-image: url(${dog.image});">
+        <span id="dogName">${dog.name}</span>
+        <span id="dogAge">${dog.age} Years</span>
+        <div id="dogSex">${dog.gender}</div>
+        <div id="breed">${dog.breed}</div>
+        <div id="location">Jos</div>
+
+        <div class="lifestyle">
+          <ul>
+            <li>Playful</li>
+            <li>Energetic</li>
+            <li>Outdoor</li>
+            <li>Pure-Breed</li>
+          </ul>
+        </div>
+
+        <div class="images">
+          <i id="undo" class="fa-solid fa-arrow-rotate-left"></i>
+          <i id="dislike" class="fa-solid fa-circle-xmark"></i>
+          <i id="like" class="fa-regular fa-heart"></i>
+          <i id="dm" class="fa-solid fa-paper-plane"></i>
+        </div>
+      </div>
         `;
         swiper.appendChild(card);
       });
