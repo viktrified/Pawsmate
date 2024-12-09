@@ -1,63 +1,43 @@
 let newMatches = document.querySelector("#newMatches");
+let swiper = document.querySelector("#swiper");
 let likeBtn = document.querySelector("#like");
 let dislikeBtn = document.querySelector("#dislike");
 let undoBtn = document.querySelector("#undo");
 
-let likesArray = [];
+let likesArray = JSON.parse(localStorage.getItem("likesArray")) || [];
 let actionHistory = [];
 const max_undo = 3;
 
-let formTag = document.querySelector("#form");
-let ownerGender = null;
+// Load user preferences from localStorage or set defaults
+let userGender = localStorage.getItem("userGender") || "male"; // Default to "male"
+let selectedBreeds = JSON.parse(localStorage.getItem("selectedBreeds")) || []; // Default to an empty array
+let selectedAgeRange = localStorage.getItem("selectedAgeRange") || ""; // Default to no age range
 
-const urlParams = new URLSearchParams(window.location.search);
-// const userGender = urlParams.get("gender");
-const selectedBreeds = urlParams.get("breeds")?.split(",") || [];
-const selectedAgeRange = urlParams.get("ageRange");
-
-// const form = (event) => {
-//   event.preventDefault();
-
-//   let allChoice = Array.from(formTag.querySelectorAll("input")).reduce(
-//     (acc, input) => {
-//       if (input.type === "radio" && input.checked) {
-//         acc[input.name] = input.value;
-//       } else if (input.type !== "radio") {
-//         acc[input.name] = input.value;
-//       }
-//       return acc;
-//     },
-//     {}
-//   );
-//   ownerGender = allChoice.gender || null;
-//   console.log("Form submitted:", allChoice);
-// };
-// if (formTag) {
-//   formTag.addEventListener("submit", form);
-// }
+const savePreferencesToLocalStorage = () => {
+  localStorage.setItem("userGender", userGender);
+  localStorage.setItem("selectedBreeds", JSON.stringify(selectedBreeds));
+  localStorage.setItem("selectedAgeRange", selectedAgeRange);
+};
 
 fetch("../users.json")
   .then((response) => response.json())
   .then((data) => {
     let dogs = data.dogs;
-    const swiper = document.querySelector("#swiper");
     let currentIndex = 0;
 
-    const filterGender = () => {
-      if (ownerGender === "male") {
-        return dogs.filter((dog) => dog.sex === "female");
-      } else if (ownerGender === "female") {
-        return dogs.filter((dog) => dog.sex === "male");
-      }
-      return dogs; // If no form is submitted, show all dogs
-    };
-
+    // Function to filter dogs based on preferences
     const filterDogs = () => {
+      // Retrieve preferences from localStorage
+      const selectedBreeds =
+        JSON.parse(localStorage.getItem("selectedBreeds")) || [];
+      const selectedAgeRange = localStorage.getItem("selectedAgeRange") || "";
+
       return dogs.filter((dog) => {
         const genderMatch = dog.sex !== userGender;
 
         const breedMatch =
           selectedBreeds.length === 0 || selectedBreeds.includes(dog.breed);
+
         let ageMatch = true;
         if (selectedAgeRange === "sixToTwo") {
           ageMatch = dog.age >= 1 && dog.age <= 2;
@@ -71,17 +51,18 @@ fetch("../users.json")
       });
     };
 
+    // Function to render filtered dogs
     const renderDogs = () => {
       const filteredDogs = filterDogs();
-      dogs = filterGender();
-      swiper.innerHTML = "";
+      swiper.innerHTML = ""; // Clear existing cards
 
       filteredDogs.forEach((dog, index) => {
         const card = document.createElement("div");
         card.className = "card";
-        card.style.display = index === 0 ? "block" : "none";
+        card.style.display = index === 0 ? "block" : "none"; // Show only the first card initially
+        card.style.zIndex = index === 0 ? "2" : "1"; // Ensure correct stacking order
         card.innerHTML = `
-          <img src="${dog.image}" alt="${dog.name}">
+          <img src="${dog.image}" alt="${dog.name}" style="width: 100%; height: auto;">
           <h3>${dog.name}</h3>
           <p>Breed: ${dog.breed}</p>
           <p>Age: ${dog.age}</p>
@@ -89,118 +70,107 @@ fetch("../users.json")
         `;
         swiper.appendChild(card);
       });
-      dogs = filteredDogs;
+
+      // Reset current index to 0 to start with the first card
+      currentIndex = 0;
     };
 
-    renderDogs();
+    // Save preferences and re-render whenever preferences change
+    const updatePreferences = (gender, breeds, ageRange) => {
+      userGender = gender;
+      selectedBreeds = breeds;
+      selectedAgeRange = ageRange;
 
-    const slideOut = (direction) => {
-      const cards = document.querySelectorAll(".card");
-      const currentCard = cards[currentIndex];
-      const nextCard = cards[(currentIndex + 1) % cards.length];
-
-      nextCard.style.display = "block";
-      nextCard.style.zIndex = "1";
-      currentCard.style.zIndex = "2";
-
-      currentCard.style.transform =
-        direction === "like" ? "translateX(100%)" : "translateX(-100%)";
-
-      setTimeout(() => {
-        currentCard.style.display = "none";
-        currentCard.style.transform = "translateX(0)";
-        currentCard.style.opacity = "1";
-        currentCard.style.zIndex = "1";
-        nextCard.style.zIndex = "2";
-      }, 500);
+      savePreferencesToLocalStorage();
+      renderDogs(); // Re-render the cards with updated preferences
     };
 
+    // Like Function
     const like = () => {
       const dog = dogs[currentIndex];
 
-      let likeDiv = document.createElement("div");
-      likeDiv.className = "liked-dog";
-      likeDiv.innerHTML = `
-        <img src="${dog.image}" alt="${dog.name}" style="width: 50px; height: 50px;">
-        <p>${dog.name}</p>
-      `;
-      newMatches.appendChild(likeDiv);
-
+      // Add to likesArray and save to localStorage
       likesArray.push({
         id: dog.id,
         name: dog.name,
         breed: dog.breed,
         age: dog.age,
         sex: dog.sex,
+        image: dog.image,
       });
+      localStorage.setItem("likesArray", JSON.stringify(likesArray));
 
+      // Log the action in history
       addActionToHistory("like", currentIndex);
-      slideOut("like");
-      next();
-    };
-    if (likeBtn) {
-      likeBtn.addEventListener("click", like);
-    }
 
+      // Move to the next card
+      moveToNextCard();
+    };
+
+    // Dislike Function
     const dislike = () => {
+      // Log the action in history
       addActionToHistory("dislike", currentIndex);
-      slideOut("dislike");
-      next();
-    };
-    if (dislikeBtn) {
-      dislikeBtn.addEventListener("click", dislike);
-    }
 
+      // Move to the next card
+      moveToNextCard();
+    };
+
+    // Move to Next Card
+    const moveToNextCard = () => {
+      const cards = document.querySelectorAll(".card");
+
+      setTimeout(() => {
+        cards[currentIndex].style.display = "none";
+        currentIndex = (currentIndex + 1) % cards.length; // Loop through cards
+        cards[currentIndex].style.display = "block";
+      }, 0);
+    };
+
+    // Undo Function
     const undo = () => {
       if (actionHistory.length > 0) {
         const lastAction = actionHistory.pop();
         const cards = document.querySelectorAll(".card");
-        const previousCard = cards[lastAction.index];
 
+        // Restore the card that was acted upon
+        currentIndex = lastAction.index;
+
+        // Update card visibility
         cards.forEach((card, idx) => {
-          if (idx !== lastAction.index) {
+          if (idx === currentIndex) {
+            card.style.display = "block";
+            card.style.zIndex = "2";
+          } else {
             card.style.display = "none";
             card.style.zIndex = "1";
           }
         });
 
-        previousCard.style.display = "block";
-        previousCard.style.opacity = "1";
-        previousCard.style.transform = "translateX(0)";
-        previousCard.style.zIndex = "2";
-
         if (lastAction.type === "like") {
-          const lastLiked = newMatches.lastChild;
-          if (lastLiked) newMatches.removeChild(lastLiked);
-          likesArray.pop();
+          // Undo the 'like' action
+          likesArray.pop(); // Remove the last liked dog
+          localStorage.setItem("likesArray", JSON.stringify(likesArray)); // Update localStorage
         }
-
-        currentIndex = lastAction.index;
+      } else {
+        console.log("No actions to undo");
       }
     };
 
-    if (undoBtn) {
-      undoBtn.addEventListener("click", undo);
-    }
-
-    const next = () => {
-      const cards = document.querySelectorAll(".card");
-
-      setTimeout(() => {
-        cards[currentIndex].style.transform = "translateX(0)";
-        cards[currentIndex].style.opacity = "1";
-
-        cards[currentIndex].style.display = "none";
-        currentIndex = (currentIndex + 1) % cards.length;
-        cards[currentIndex].style.display = "block";
-      }, 500);
-    };
-
+    // Add Action to History
     const addActionToHistory = (type, index) => {
       actionHistory.push({ type, index });
       if (actionHistory.length > max_undo) {
-        actionHistory.shift();
+        actionHistory.shift(); // Maintain max_undo limit
       }
     };
+
+    // Event Listeners
+    if (likeBtn) likeBtn.addEventListener("click", like);
+    if (dislikeBtn) dislikeBtn.addEventListener("click", dislike);
+    if (undoBtn) undoBtn.addEventListener("click", undo);
+
+    // Initial Render
+    renderDogs();
   })
   .catch((error) => console.error("Error loading JSON:", error));

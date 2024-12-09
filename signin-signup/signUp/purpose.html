@@ -40,45 +40,45 @@
             Play Mate
           </li>
 
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Terrier
           </li>
 
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Lhasa
           </li>
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Beagle
           </li>
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Cane Corso
           </li>
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Husky
           </li>
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Retriever
           </li>
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Dobberman
           </li>
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Rottweiler
           </li>
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Shephards
           </li>
 
-          <li class="specificBreed">
+          <li class="specificBreed checker">
             <i class="fa-solid fa-circle-check"></i>
             Chihuahua
           </li>
@@ -96,11 +96,11 @@
         </li>
         <li class="checker" id="twoToSeven">
           <i class="fa-solid fa-circle-check"></i>
-          1 Yrs -4 Yrs
+          3 Yrs -7 Yrs
         </li>
         <li class="checker" id="sevenPlus">
           <i class="fa-solid fa-circle-check"></i>
-          5+ years
+          7+ years
         </li>
       </ul>
     </div>
@@ -139,54 +139,59 @@
         <button id="next">Next</button>
       </div>
     </div>
-  </body>
-  <script>
-    const selectedBreeds = new Set();
-    let selectedAgeRange = null;
+    <script>
+      const selectedBreeds = new Set();
+      let selectedAgeRange = null;
 
-    // Event listener for breed selection
-    document.querySelectorAll(".specificBreed").forEach((breed) => {
-      breed.addEventListener("click", (event) => {
-        const breedName = event.target.textContent;
-        if (selectedBreeds.has(breedName)) {
-          selectedBreeds.delete(breedName);
-          event.target.style.textDecoration = "none";
-        } else {
-          selectedBreeds.add(breedName);
+      // Handle breed selection
+      document.querySelectorAll(".specificBreed").forEach((breed) => {
+        breed.addEventListener("click", (event) => {
+          const breedName = event.target.textContent.trim();
+          if (selectedBreeds.has(breedName)) {
+            selectedBreeds.delete(breedName);
+            event.target.style.textDecoration = "none"; // Remove strike-through
+          } else {
+            selectedBreeds.add(breedName);
+            event.target.style.textDecoration = "line-through"; // Add strike-through
+          }
+        });
+      });
+
+      // Handle age range selection
+      document.querySelectorAll("#ageRangeList li").forEach((ageOption) => {
+        ageOption.addEventListener("click", (event) => {
+          // Remove selection style from all age options
+          document
+            .querySelectorAll("#ageRangeList li")
+            .forEach((item) => (item.style.textDecoration = "none"));
+
+          // Set selectedAgeRange and apply style
+          selectedAgeRange = event.target.id;
           event.target.style.textDecoration = "line-through";
+        });
+      });
+
+      // Handle "Next" button click
+      document.getElementById("next").addEventListener("click", () => {
+        if (selectedBreeds.size < 5) {
+          alert("Please select at least 5 breeds.");
+          return;
         }
+        if (!selectedAgeRange) {
+          alert("Please select an age range.");
+          return;
+        }
+
+        // Store preferences in localStorage
+        localStorage.setItem(
+          "selectedBreeds",
+          JSON.stringify(Array.from(selectedBreeds))
+        );
+        localStorage.setItem("selectedAgeRange", selectedAgeRange);
+
+        // Redirect to the dashboard
+        window.location.href = "../../src/dashboard.html";
       });
-    });
-
-    // Event listener for age range selection
-    document.querySelectorAll("#ageRangeList li").forEach((ageOption) => {
-      ageOption.addEventListener("click", (event) => {
-        document
-          .querySelectorAll("#ageRangeList li")
-          .forEach((item) => (item.style.textDecoration = "none"));
-
-        selectedAgeRange = event.target.id;
-        event.target.style.textDecoration = "line-through";
-      });
-    });
-
-    // Validate and handle 'next' button click
-    document.getElementById("next").addEventListener("click", () => {
-      if (selectedBreeds.size < 5) {
-        alert("Please select at least 5 breeds.");
-        return;
-      }
-      if (!selectedAgeRange) {
-        alert("Please select an age range.");
-        return;
-      }
-
-      const queryParams = new URLSearchParams({
-        breeds: Array.from(selectedBreeds).join(","),
-        ageRange: selectedAgeRange,
-      });
-
-      window.location.href = `../../src/dashboard.html?${queryParams.toString()}`;
-    });
-  </script>
+    </script>
+  </body>
 </html>

@@ -38,9 +38,10 @@
       <label for="gender">Select Gender:</label>
       <select id="gender" name="gender">
         <option class="option">--Select--</option>
-        <option id="male " value="male">Male</option>
+        <option id="male" value="male">Male</option>
         <option id="female" value="female">Female</option>
       </select>
+      
       <label for="location">Location</label>
       <input
         type="text"
@@ -49,25 +50,33 @@
         placeholder="Enter location"
         required
       />
+      
       <input type="submit" id="submitButton" value="Next" />
     </form>
 
-    <script src="../../script/slide.js">
+    <script>
+      let basicBtn = document.querySelector("#form");
 
-      // let basicBtn = document.querySelector("#form");
-      // const basic = () => {
-      //   event.preventDefault();
+      const basic = (event) => {
+        event.preventDefault();
 
-      //   const formData = new FormData(event.target);
-      //   const userGender = formData.get("gender");
+        // Get the gender selection value
+        const formData = new FormData(event.target);
+        const userGender = formData.get("gender");
 
-      //   // Redirect to dashboard with gender as a query parameter
-      //   window.location.href = `./purpose.html?gender=${userGender}`;
-      // };
-      // if (basicBtn) {
-      //   basicBtn.addEventListener("submit", basic);
-      // }
+        // Store the gender in localStorage
+        localStorage.setItem("userGender", userGender);
+
+        // Redirect to the next page with gender as query parameter (optional)
+        window.location.href = `./purpose.html?gender=${userGender}`;
+      };
+
+      if (basicBtn) {
+        basicBtn.addEventListener("submit", basic);
+      }
     </script>
-    <script src="../../script/signup.js"></script>
+<!-- const userGender = localStorage.getItem("userGender"); -->
+
+
   </body>
 </html>

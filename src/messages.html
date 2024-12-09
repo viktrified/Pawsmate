@@ -7,10 +7,34 @@
     <link rel="stylesheet" href="../src/swipper.css" />
   </head>
   <body>
-    <!-- <div id="newMatches"></div> -->
-    <button>MAGGI</button>
-    <script src="../script/message.js"></script>
+    <h1>New matches</h1>
+    <div id="likesContainer"></div>
 
-    <script src="../script/slide.js"></script>
+    <script>
+      const likesContainer = document.getElementById("likesContainer");
+
+      const displayLikes = () => {
+        const likesArray = JSON.parse(localStorage.getItem("likesArray")) || [];
+        likesContainer.innerHTML = "";
+
+        likesArray.forEach((dog) => {
+          let likeDiv = document.createElement("div");
+          likeDiv.className = "liked-dog";
+          likeDiv.innerHTML += `
+          <img src="${dog.image}" alt="${dog.name}" style="width: 50px; height: 50px;">
+          <p>${dog.name}
+        `;
+          likesContainer.appendChild(likeDiv);
+        });
+      };
+
+      displayLikes();
+
+      window.addEventListener("storage", (event) => {
+        if (event.key === "likesArray") {
+          displayLikes();
+        }
+      });
+    </script>
   </body>
 </html>
