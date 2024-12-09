@@ -4,19 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../src/swipper.css" />
   </head>
   <body>
-    <div id="dogImage"><img src="${users.image}" alt="dog image"></div>
-    <div>
+    <div id="whole-container">
+      <button id="undo">undo</button>
+      <button id="dislike">dislike</button>
 
-      <span id="dogName"></span> <span id="dogAge">Years</span>
-      <div id="dogSex"></div>
-      <div id="breed"></div>
-      <div id="location">Jos</div>
-
+      <div id="container">
+        <div id="swiper"></div>
+      </div>
+      <button id="like">like</button>
+      <button id="dm">dm</button>
     </div>
-    <script src="script.js"></script>
+    <div id="newMatches"></div>
+
+    <script src="../script/slide.js"></script>
   </body>
 </html>
-
-

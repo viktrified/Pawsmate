@@ -6,22 +6,42 @@
     <title>Document</title>
   </head>
   <body>
-    <form action="">
+    <form id="form">
       <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter name" />
+      <input
+        type="text"
+        id="name"
+        name="name"
+        placeholder="Enter name"
+        required
+      />
 
       <label for="age">Age</label>
-      <input type="text" id="age" name="age" placeholder="Enter age" />
+      <input
+        type="number"
+        id="age"
+        name="age"
+        placeholder="Enter age"
+        required
+      />
 
       <label for="breed">Breed</label>
-      <input type="text" id="breed" name="breed" placeholder="Enter breed" />
+      <input
+        type="text"
+        id="breed"
+        name="breed"
+        placeholder="Enter breed"
+        required
+      />
 
       <label for="gender">Gender</label>
       <label for="male">
-        <input type="radio" id="male" name="gender" value="male" /> Male
+        <input type="radio" id="male" name="gender" value="male" required />
+        Male
       </label>
       <label for="female">
-        <input type="radio" id="female" name="gender" value="female" /> Female
+        <input type="radio" id="female" name="gender" value="female" required />
+        Female
       </label>
 
       <label for="location">Location</label>
@@ -30,10 +50,29 @@
         id="location"
         name="location"
         placeholder="Enter location"
+        required
       />
-      <input type="submit" id="submitButton" value="Send" />
+      <input type="submit" id="nextBasic" value="next" />
     </form>
 
-    <script src="../../script/backend.js"></script>
+
+
+    <script src="../../script/slide.js">
+
+      // let basicBtn = document.querySelector("#form");
+      // const basic = () => {
+      //   event.preventDefault();
+
+      //   const formData = new FormData(event.target);
+      //   const userGender = formData.get("gender");
+
+      //   // Redirect to dashboard with gender as a query parameter
+      //   window.location.href = `./purpose.html?gender=${userGender}`;
+      // };
+      // if (basicBtn) {
+      //   basicBtn.addEventListener("submit", basic);
+      // }
+    </script>
+    <script src="../../script/signup.js"></script>
   </body>
 </html>
