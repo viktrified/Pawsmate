@@ -143,201 +143,139 @@ li.checker {
 
 /* style for dashboard */
 
- * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .DashHeader {
-    width: 100%;
-    height: 50px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    font-family: "Kaushan Script", cursive;
-    font-size: 24px;
-    color: #fb8500;
-    text-shadow: 1px 1px 2px wheat;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0px 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 15px;
-    background-image: url(/signin-signup/images/Group\ 5.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow-y: auto;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 100px);
+  position: relative;
 }
 
 .dog_profile {
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
-  
+  width: 100%;
+  display: flex;
+  justify-content: end;
 }
 
-
+.logo {
+  font-family: "Kaushan Script", cursive;
+  font-size: 24px;
+  color: #fb8500;
+  text-shadow: 1px 1px 2px wheat;
+}
 
 #dogName,
 #dogAge,
 #dogSex,
 #breed,
 #location {
-    display: block;
-    font-size: 16px;
-    margin: 5px 0;
-    color: #333;
+  font-size: 16px;
+  margin: 5px 0;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#dogName,
+#dogAge {
+  padding-right: 15px;
+}
+
+.giveSpace {
+  padding: 5px 30px;
 }
 
 .lifestyle ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    color: azure;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: azure;
 }
 
 .lifestyle ul li {
-    background-color: #fb8500;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 14px;
+  background-color: #fb8500;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 19px;
 }
 
 .images {
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 40px 0;
 }
 
 .images i {
-    font-size: 25px;
-    color: #fb8500;
-    background-color: white;
-    width: 80px;
-   display: flex;
-   align-items: center;
-   justify-content: center;
- margin: 10px;
-   padding: 5px;
-   border-radius: 5px;
+  font-size: 40px;
+  color: #fb8500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  padding: 5px;
+}
+
+.topOne{
+  position: absolute;
+  bottom: 130px;
+}
+
+.topTwo{
+  position: relative;
+  bottom: 150px;
+}
+
+.iconB {
+  background-color: white;
+  border-radius: 50%;
 }
 
 /* Footer */
 .footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
-    background-color: white;
-    border-top: 1px solid #ccc;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .footer i {
-    font-size: 20px;
-    color: #333;
-}
-
-
-
-@media (min-width: 768px) {
-    /* Tablet View */
-    .DashHeader {
-        height: 60px;
-    }
-
-    .logo {
-        font-size: 28px;
-    }
-
-    #dogName,
-    #dogAge,
-    #dogSex,
-    #breed,
-    #location {
-        font-size: 18px;
-    }
-
-    .lifestyle ul li {
-        font-size: 16px;
-    }
-
-    .images i {
-        font-size: 24px;
-    }
-
-    .footer {
-        height: 60px;
-    }
-
-    .footer i {
-        font-size: 24px;
-    }
-}
-
-@media (min-width: 1024px) {
-    /* Laptop View */
-    .DashHeader {
-        height: 70px;
-    }
-
-    body{
-      background-position: center;
-    }
-
-    .content{
-     margin-top: -10%;
-    }
-
-
-    .logo {
-        font-size: 32px;
-    }
-
-    #dogName,
-    #dogAge,
-    #dogSex,
-    #breed,
-    #location {
-        font-size: 20px;
-    }
-
-    .lifestyle ul li {
-        font-size: 18px;
-    }
-
-    .images i {
-        font-size: 28px;
-    }
-
-    .footer {
-        height: 70px;
-    }
-
-    .footer i {
-        font-size: 28px;
-    }
+  font-size: 30px;
+  color: #333;
 }

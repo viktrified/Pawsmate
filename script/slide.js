@@ -9,9 +9,9 @@ let actionHistory = [];
 const max_undo = 3;
 
 // Load user preferences from localStorage or set defaults
-let userGender = localStorage.getItem("userGender") || "male"; // Default to "male"
-let selectedBreeds = JSON.parse(localStorage.getItem("selectedBreeds")) || []; // Default to an empty array
-let selectedAgeRange = localStorage.getItem("selectedAgeRange") || ""; // Default to no age range
+let userGender = localStorage.getItem("userGender") || "male";
+let selectedBreeds = JSON.parse(localStorage.getItem("selectedBreeds")) || [];
+let selectedAgeRange = localStorage.getItem("selectedAgeRange") || "";
 
 const savePreferencesToLocalStorage = () => {
   localStorage.setItem("userGender", userGender);
@@ -25,9 +25,36 @@ fetch("../users.json")
     let dogs = data.dogs;
     let currentIndex = 0;
 
-    // Function to filter dogs based on preferences
+const slideOut = (direction) => {
+  const cards = document.querySelectorAll(".card");
+  const currentCard = cards[currentIndex];
+  const nextCard = cards[(currentIndex + 1) % cards.length];
+
+  // Prepare next card for visibility
+  nextCard.style.display = "block";
+  nextCard.style.zIndex = "1";
+  nextCard.style.opacity = "1";
+
+  // Animate the current card out
+  currentCard.style.transform =
+    direction === "like" ? "translateX(100%)" : "translateX(-100%)";
+  currentCard.style.transition = "transform 0.5s ease";
+
+  // Reset styles after animation
+  setTimeout(() => {
+    currentCard.style.display = "none";
+    currentCard.style.transform = "translateX(0)";
+    currentCard.style.opacity = "1";
+    currentCard.style.zIndex = "1";
+    nextCard.style.zIndex = "2";
+
+    // Update current index
+    currentIndex = (currentIndex + 1) % cards.length;
+  }, 500);
+};
+
+
     const filterDogs = () => {
-      // Retrieve preferences from localStorage
       const selectedBreeds =
         JSON.parse(localStorage.getItem("selectedBreeds")) || [];
       const selectedAgeRange = localStorage.getItem("selectedAgeRange") || "";
@@ -51,63 +78,45 @@ fetch("../users.json")
       });
     };
 
-    // Function to render filtered dogs
     const renderDogs = () => {
       const filteredDogs = filterDogs();
-      swiper.innerHTML = ""; // Clear existing cards
+      swiper.innerHTML = "";
 
       filteredDogs.forEach((dog, index) => {
         const card = document.createElement("div");
         card.className = "card";
-        card.style.display = index === 0 ? "block" : "none"; // Show only the first card initially
-        card.style.zIndex = index === 0 ? "2" : "1"; // Ensure correct stacking order
+        card.style.display = index === 0 ? "block" : "none";
+        card.style.zIndex = index === 0 ? "2" : "1";
         card.innerHTML = `
-  <div class="dog_profile" style="  background-image: url(${dog.image});">
-        <span id="dogName">${dog.name}</span>
-        <span id="dogAge">${dog.age} Years</span>
-        <div id="dogSex">${dog.gender}</div>
-        <div id="breed">${dog.breed}</div>
-        <div id="location">Jos</div>
-
-        <div class="lifestyle">
-          <ul>
-            <li>Playful</li>
-            <li>Energetic</li>
-            <li>Outdoor</li>
-            <li>Pure-Breed</li>
-          </ul>
-        </div>
-
-        <div class="images">
-          <i id="undo" class="fa-solid fa-arrow-rotate-left"></i>
-          <i id="dislike" class="fa-solid fa-circle-xmark"></i>
-          <i id="like" class="fa-regular fa-heart"></i>
-          <i id="dm" class="fa-solid fa-paper-plane"></i>
-        </div>
-      </div>
-        `;
+          <div class="dog_profile content" style="background: url(${dog.image}) center/cover no-repeat;">
+            <div class="topOne">
+              <div class="giveSpace">
+                <span id="dogName">${dog.name}</span>
+                <span id="dogAge">${dog.age} Years</span>
+              </div>
+              <div class="giveSpace">
+                <span id="dogSex">${dog.sex}</span>
+                <span id="breed">${dog.breed}</span>
+              </div>
+              <div id="location" class="giveSpace">Location: Jos</div>
+              <div class="lifestyle giveSpace">
+                <ul>
+                  <li>Playful</li>
+                  <li>Energetic</li>
+                  <li>Outdoor</li>
+                  <li>Pure-Breed</li>
+                </ul>
+              </div>
+            </div>
+          </div>`;
         swiper.appendChild(card);
       });
 
-      // Reset current index to 0 to start with the first card
       currentIndex = 0;
     };
 
-    // Save preferences and re-render whenever preferences change
-    const updatePreferences = (gender, breeds, ageRange) => {
-      userGender = gender;
-      selectedBreeds = breeds;
-      selectedAgeRange = ageRange;
-
-      savePreferencesToLocalStorage();
-      renderDogs(); // Re-render the cards with updated preferences
-    };
-
-    // Like Function
     const like = () => {
       const dog = dogs[currentIndex];
-
-      // Add to likesArray and save to localStorage
       likesArray.push({
         id: dog.id,
         name: dog.name,
@@ -117,44 +126,21 @@ fetch("../users.json")
         image: dog.image,
       });
       localStorage.setItem("likesArray", JSON.stringify(likesArray));
-
-      // Log the action in history
       addActionToHistory("like", currentIndex);
-
-      // Move to the next card
-      moveToNextCard();
+      slideOut("like");
     };
 
-    // Dislike Function
     const dislike = () => {
-      // Log the action in history
       addActionToHistory("dislike", currentIndex);
-
-      // Move to the next card
-      moveToNextCard();
+      slideOut("dislike");
     };
 
-    // Move to Next Card
-    const moveToNextCard = () => {
-      const cards = document.querySelectorAll(".card");
-
-      setTimeout(() => {
-        cards[currentIndex].style.display = "none";
-        currentIndex = (currentIndex + 1) % cards.length; // Loop through cards
-        cards[currentIndex].style.display = "block";
-      }, 0);
-    };
-
-    // Undo Function
     const undo = () => {
       if (actionHistory.length > 0) {
         const lastAction = actionHistory.pop();
         const cards = document.querySelectorAll(".card");
-
-        // Restore the card that was acted upon
         currentIndex = lastAction.index;
 
-        // Update card visibility
         cards.forEach((card, idx) => {
           if (idx === currentIndex) {
             card.style.display = "block";
@@ -166,29 +152,25 @@ fetch("../users.json")
         });
 
         if (lastAction.type === "like") {
-          // Undo the 'like' action
-          likesArray.pop(); // Remove the last liked dog
-          localStorage.setItem("likesArray", JSON.stringify(likesArray)); // Update localStorage
+          likesArray.pop();
+          localStorage.setItem("likesArray", JSON.stringify(likesArray));
         }
       } else {
         console.log("No actions to undo");
       }
     };
 
-    // Add Action to History
     const addActionToHistory = (type, index) => {
       actionHistory.push({ type, index });
       if (actionHistory.length > max_undo) {
-        actionHistory.shift(); // Maintain max_undo limit
+        actionHistory.shift();
       }
     };
 
-    // Event Listeners
     if (likeBtn) likeBtn.addEventListener("click", like);
     if (dislikeBtn) dislikeBtn.addEventListener("click", dislike);
     if (undoBtn) undoBtn.addEventListener("click", undo);
 
-    // Initial Render
     renderDogs();
   })
   .catch((error) => console.error("Error loading JSON:", error));

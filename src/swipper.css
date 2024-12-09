@@ -51,3 +51,8 @@ button:hover {
 #whole-container {
     display: flex;
 }
+
+.likesContainer{
+  display: flex;
+  justify-content: space-evenly;
+}

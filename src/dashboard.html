@@ -11,24 +11,45 @@
     />
   </head>
   <body>
-    <div class="DashHeader">
-      <h2 class="logo">PawsMate!</h2>
-    </div>
+    <div class="dashboard-container">
+      <div class="DashHeader">
+        <h2 class="logo">PawsMate!</h2>
+      </div>
 
-    <!-- Content -->
-    <div class="content">
-    <div id="swiper"></div>
-    </div>
+      <!-- Content -->
+      <div class="content">
+        <div id="swiper"></div>
 
-    <!-- Footer -->
-    <div class="footer">
-      <i class="fa-regular fa-heart"></i>
-      <i class="fa-regular fa-comment"></i>
-      <i class="fa-solid fa-user"></i>
+        <div class="images topTwo">
+          <span class="iconB">
+            <i id="undo" class="fa-solid fa-arrow-rotate-left"></i>
+          </span>
+          <span class="iconB">
+            <i id="dislike" class="fa-solid fa-circle-xmark"></i>
+          </span>
+          <span class="iconB">
+            <i id="like" class="fa-regular fa-heart"></i>
+          </span>
+          <a href="../src/chat.html" class="iconB">
+            <i id="dm" class="fa-solid fa-paper-plane"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <a href="../src/dashboard.html">
+          <i class="fa-solid fa-heart"></i>
+        </a>
+        <a href="../src/dm.html">
+          <i class="fa-regular fa-comment"></i>
+        </a>
+        <a href="../src/profile.html">
+          <i class="fa-regular fa-user"></i>
+        </a>
+      </div>
     </div>
 
     <script src="../script/slide.js"></script>
   </body>
 </html>
-
-

@@ -14,7 +14,9 @@
 
     <h2 class="section-title">New Matches</h2>
     <section class="new-matches">
-      <div class="carousel">
+        <div id="likesContainer" class="carousel"></div>
+
+      <!-- <div class="carousel">
         <div class="carousel-item">
           <img src="images/Bella.jpg" alt="Bella">
           <p class="dog-name">Bella</p>
@@ -31,7 +33,7 @@
           <img src="images/Gray.jpg" alt="Gray">
           <p class="dog-name">Gray</p>
         </div>
-      </div>
+      </div> -->
     </section>
 
     <h2 class="section-title">Messages</h2>
@@ -58,12 +60,33 @@
         </div>
       </div>
     </section>
-
-    <footer class="footer">
-      <div class="footer-icon" id="heart-icon">❤️</div>
-      <div class="footer-icon" id="message-icon">💬</div>
-      <div class="footer-icon" id="profile-icon">👤</div>
-    </footer>
   </div>
+      <script>
+      const likesContainer = document.getElementById("likesContainer");
+
+      const displayLikes = () => {
+        const likesArray = JSON.parse(localStorage.getItem("likesArray")) || [];
+        likesContainer.innerHTML = "";
+
+        likesArray.forEach((dog) => {
+          let likeDiv = document.createElement("div");
+          likeDiv.className = "liked-dog";
+          likeDiv.innerHTML += `
+          <img src="${dog.image}" alt="${dog.name}" style="width: 50px; height: 50px;">
+          <p>${dog.name}
+        `;
+          likesContainer.appendChild(likeDiv);
+        });
+      };
+
+      displayLikes();
+
+      window.addEventListener("storage", (event) => {
+        if (event.key === "likesArray") {
+          displayLikes();
+        }
+      });
+    </script>
 </body>
 </html>
+
